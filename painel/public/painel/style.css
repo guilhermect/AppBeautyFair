@@ -190,8 +190,12 @@ body {}
 	padding:14px 0px;
 }
 .nav.navbar-nav.notika-top-nav{
+<<<<<<< HEAD
     float: right;
     margin-top: 20px;
+=======
+	float: right;
+>>>>>>> 55cfffaea87f4553bfb47d230631bf9a9a8beffb
 }
 .nav.notika-top-nav .open>a, .nav.notika-top-nav .open>a:focus, .nav.notika-top-nav .open>a:hover {
     background: crimson;
