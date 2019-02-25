@@ -58,6 +58,22 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="<?php echo base_url('painel/public/painel/js/vendor/modernizr-2.8.3.min.js') ?>"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBWdXOpG5j2JCkn8aZQH1djH3hH7XjiGvA",
+        authDomain: "app-beautyfair.firebaseapp.com",
+        databaseURL: "https://app-beautyfair.firebaseio.com",
+        projectId: "app-beautyfair",
+        storageBucket: "app-beautyfair.appspot.com",
+        messagingSenderId: "37992804050"
+        
+      };
+      firebase.initializeApp(config);
+
+      
+    </script>
 </head>
 
 <body>

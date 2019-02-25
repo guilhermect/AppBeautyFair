@@ -1,3 +1,5 @@
+   
+    
     <!-- jquery
 		============================================ -->
     <script src="<?php echo base_url('painel/public/painel/js/vendor/jquery-1.12.4.min.js') ?>"></script>
@@ -66,7 +68,7 @@
     <script src="<?php echo base_url('painel/public/painel/js/main.js') ?>"></script>
 	<!-- tawk chat JS
 		============================================ -->
-    <script src="<?php echo base_url('painel/public/painel/js/tawk-chat.js') ?>"></script>
+   
 </body>
 
 </html>
