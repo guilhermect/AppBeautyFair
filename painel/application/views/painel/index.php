@@ -11,100 +11,123 @@
                         </div>
                         <div class="form-example-int">
                             <div class="form-group">
-                                <label>Email Address</label>
+                                <label>ID</label>
                                 <div class="nk-int-st">
-                                    <input type="text"  class="form-control input-sm" placeholder="Enter Email"  name="id" id="user_id">
+                                    <input type="text"  class="form-control input-sm" placeholder=""  name="id" id="user_id">
                                 </div>
                             </div>
                         </div>
                         <div class="form-example-int mg-t-15">
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Name</label>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control input-sm" placeholder="Password" name="user_name" id="user_name" >
+                                    <input type="text" class="form-control input-sm" placeholder="" name="user_name" id="user_name" >
                                 </div>
                             </div>
                         </div>
                        
                         <div class="form-example-int mg-t-15">
-                            <button class="btn btn-success notika-btn-success" type="submit" value="Save" onclick="save_user();">Submit</button>
+                            <button class="btn btn-success" type="submit" value="Save" onclick="save_user();">Submit</button>
+                            <button type="submit" class="btn btn-warning" value="Update" onclick="update_user();">Update</button>
+                            <button type="submit" value="Delete" class="btn btn-danger " onclick="delete_user();">Delete</button>
                         </div>
                     </div>
                 </div>
             </div>
     
-
-            <!--<table>
-                <tr>
-                <td>Id: </td>
-                <td><input type="text" name="id" id="user_id" /></td>
-                </tr>
-                <tr>
-                <td>User Name: </td>
-                <td><input type="text" name="user_name" id="user_name" /></td>
-                </tr>
-                <tr>
-                <td colspan="2">
-                    <input type="button" value="Save" onclick="save_user();" />
-                    <input type="button" value="Update" onclick="update_user();" />
-                    <input type="button" value="Delete" onclick="delete_user();" />
-                </td>
-                </tr>
-                </table>
-                
-                <h3>Users List</h3>
-                
-                <table id="tbl_users_list" border="1">
-                <tr>
-                <td>#ID</td>
-                <td>NAME</td>
-                </tr>
-            </table>-->
+            
+            <br>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list">
+                        <div class="basic-tb-hd">
+                            <h3>Users List</h3>
+                            <div class="table-responsive">
+                                <table id="data-table-basic" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>NAME</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+                                       
         </div> 
 
         <script>
  
-            var tblUsers = document.getElementById('tbl_users_list');
-            var database = firebase.database().ref('users/');
-            var rowIndex = 1;
-            
-            databaseRef.once('value', function(snapshot) {
-                snapshot.forEach(function(childSnapshot) {
-                    var childKey = childSnapshot.key;
-                    var childData = childSnapshot.val();
-            
-                    var row = tblUsers.insertRow(rowIndex);
-                    var cellId = row.insertCell(0);
-                    var cellName = row.insertCell(1);
-                    cellId.appendChild(document.createTextNode(childKey));
-                    cellName.appendChild(document.createTextNode(childData.user_name));
-            
-                    rowIndex = rowIndex + 1;
-                });
-            });
-   
-            function save_user(){
-                var user_name = document.getElementById('user_name').value;
+        var tblUsers = document.getElementById('data-table-basic');
+        var databaseRef = firebase.database().ref('users/');
+        var rowIndex = 1;
         
-                var uid = firebase.database().ref().child('users').push().key;
+        databaseRef.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childKey = childSnapshot.key;
+        var childData = childSnapshot.val();
         
-                var data = {
-                    user_id: uid,
-                    user_name: user_name
-                }
+        var row = tblUsers.insertRow(rowIndex);
+        var cellId = row.insertCell(0);
+        var cellName = row.insertCell(1);
+        cellId.appendChild(document.createTextNode(childKey));
+        cellName.appendChild(document.createTextNode(childData.user_name));
         
-                var updates = {};
-                    updates['/users/' + uid] = data;
-                    firebase.database().ref().update(updates);
+        rowIndex = rowIndex + 1;
+        });
+        });
         
-                    alert('The user is created successfully!');
-                    reload_page();
-            }
+        function save_user(){
+        var user_name = document.getElementById('user_name').value;
+        
+        var uid = firebase.database().ref().child('users').push().key;
+        
+        var data = {
+        user_id: uid,
+        user_name: user_name
+        }
+        
+        var updates = {};
+        updates['/users/' + uid] = data;
+        firebase.database().ref().update(updates);
+        
+        alert('The user is created successfully!');
+        reload_page();
+        }
+        
+        function update_user(){
+        var user_name = document.getElementById('user_name').value;
+        var user_id = document.getElementById('user_id').value;
 
-    
-  
-            function reload_page(){
-                    window.location.reload();
-            }
-  
-        </script>
+        var data = {
+        user_id: user_id,
+        user_name: user_name
+        }
+        
+        var updates = {};
+        updates['/users/' + user_id] = data;
+        firebase.database().ref().update(updates);
+        
+        alert('The user is updated successfully!');
+        
+        reload_page();
+        }
+        
+        function delete_user(){
+        var user_id = document.getElementById('user_id').value;
+        
+        firebase.database().ref().child('/users/' + user_id).remove();
+        alert('The user is deleted successfully!');
+        reload_page();
+        }
+        
+        function reload_page(){
+        window.location.reload();
+        }
+ 
+</script>

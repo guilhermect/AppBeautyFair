@@ -68,6 +68,10 @@
     <script src="<?php echo base_url('painel/public/painel/js/main.js') ?>"></script>
 	<!-- tawk chat JS
 		============================================ -->
+    <!-- Data Table JS
+		============================================ -->
+    <script src="<?php echo base_url('painel/public/painel/js/data-table/jquery.dataTables.min.js') ?>"></script>
+    <script src="<?php echo base_url('painel/public/painel/js/data-table/data-table-act.js') ?>"></script>
    
 </body>
 

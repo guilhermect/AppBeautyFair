@@ -58,7 +58,11 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="<?php echo base_url('painel/public/painel/js/vendor/modernizr-2.8.3.min.js') ?>"></script>
+    <!-- Data Table JS
+		============================================ -->
+    <link rel="stylesheet" href="<?php echo base_url('painel/public/painel/css/jquery.dataTables.min.css') ?>">
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+
     <script>
       // Initialize Firebase
       var config = {
