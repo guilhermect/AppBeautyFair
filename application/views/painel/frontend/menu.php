@@ -89,10 +89,10 @@
                         <div id="noticias" class="tab-pane in active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="<?php echo base_url('index.html'); ?>">Ver notícias</a>
+                                    <a href="<?php echo base_url('painel/ver_noticias'); ?>">Ver notícias</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('index.html'); ?>">Inserir notícias</a>
+                                    <a href="<?php echo base_url('painel/inserir_noticias'); ?>">Inserir notícias</a>
                                 </li>
                             </ul>
                         </div>

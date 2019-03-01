@@ -1,3 +1,0 @@
-#Readme File
-
-App BeautyFair

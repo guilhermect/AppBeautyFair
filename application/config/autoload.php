@@ -133,6 +133,8 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array();
+$autoload['helper'] = array('url', 'form', 'text');
+
 
 
 //$autoload['libraries'] = array('firebase');
