@@ -15,7 +15,7 @@ class Painel extends CI_Controller {
 		$this->load->view('painel/frontend/html-header');
 		$this->load->view('painel/frontend/header');
 		$this->load->view('painel/frontend/menu');
-		$this->load->view('painel/index');
+		$this->load->view('painel/ver_noticias');
 		$this->load->view('painel/frontend/footer');
 		$this->load->view('painel/frontend/html-footer');
 	}

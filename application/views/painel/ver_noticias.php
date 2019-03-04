@@ -1,3 +1,10 @@
+        
+        <script>
+        $(function(){
+            //$("button").addClass("btn-danger");
+        });
+        </script>
+        <style></style>
         <div class="container">
         
             <div class="row">
@@ -6,13 +13,18 @@
                         <div class="basic-tb-hd">
                             <h3>Users List</h3>
                             <div class="table-responsive">
-                                <table id="table" class="table table-striped">
-                                    <thead class="thead-dark">
+                                <table id="table" class="table table-striped table-dark">
+                                    <thead style="background:#2E2E2E;">
                                         <tr>
-                                            <th>#ID</th>
-                                            <th>NAME</th>
+                                            <th style="color:#fff;">EMAIL</th>
+                                            <th style="color:#fff;">NAME</th>
+                                            <th style="color:#fff;">ACTIONS</th>
                                         </tr>
+                                        
                                     </thead>
+                                    <tbody id="user-list" >
+                                    
+                                    </tbody>
                                     
                                     
                                 </table>
@@ -24,27 +36,4 @@
                                        
         </div> 
 
-        <script>
- 
-        var tblUsers = document.getElementById('table');
-        var databaseRef = firebase.database().ref('users/');
-        var rowIndex = 1;
-        
-        databaseRef.once('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-        var childKey = childSnapshot.key;
-        var childData = childSnapshot.val();
-        
-        var row = tblUsers.insertRow(rowIndex);
-        var cellId = row.insertCell(0);
-        var cellName = row.insertCell(1);
-        cellId.appendChild(document.createTextNode(childKey));
-        cellName.appendChild(document.createTextNode(childData.user_name));
-        
-        rowIndex = rowIndex + 1;
-        });
-        });
-        
-        
- 
-</script>
+        <script src="<?php echo base_url('public/painel/firebase/app.js') ?>"></script>

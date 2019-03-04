@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?php //echo base_url('public/painel/img/favicon.ico'); ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/painel/img/favicon.ico'); ?>">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -61,23 +61,32 @@
     <!-- Data Table JS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo base_url('public/painel/css/jquery.dataTables.min.css') ?>">
-    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
 
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBWdXOpG5j2JCkn8aZQH1djH3hH7XjiGvA",
-        authDomain: "app-beautyfair.firebaseapp.com",
-        databaseURL: "https://app-beautyfair.firebaseio.com",
-        projectId: "app-beautyfair",
-        storageBucket: "app-beautyfair.appspot.com",
-        messagingSenderId: "37992804050"
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
         
-      };
-      firebase.initializeApp(config);
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-messaging.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-functions.js"></script>
 
-      
-    </script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyANHQUh5_murAHkZGsxKEqd4qPMAoLKSPU",
+                authDomain: "beauty-fair-214318.firebaseapp.com",
+                databaseURL: "https://beauty-fair-214318.firebaseio.com",
+                projectId: "beauty-fair-214318",
+                storageBucket: "beauty-fair-214318.appspot.com",
+                messagingSenderId: "283508537411"
+            };
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true });
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
