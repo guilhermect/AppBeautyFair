@@ -1,10 +1,21 @@
+        <style>
+        button{
+            color: white;
+            border: 0;
+            margin: 15px;
+            padding: 6px;
+            width: 85px;
+            border-radius: 4px;
+        }
         
-        <script>
-        $(function(){
-            //$("button").addClass("btn-danger");
-        });
-        </script>
-        <style></style>
+        tr button:nth-last-child(1){
+            background:#00C851;
+        }
+
+        tr button:nth-last-child(2){
+            background:crimson;
+        }
+        </style>
         <div class="container">
         
             <div class="row">
