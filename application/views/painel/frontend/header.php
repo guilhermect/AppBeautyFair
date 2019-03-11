@@ -1,3 +1,14 @@
+<script src="<?php echo base_url('public/painel/firebase/logout.js') ?>"></script>
+<script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+            // User is signed in.
+            } else {
+            window.location='index';
+            }
+        });
+        </script>
+
   <div class="header-top-area">
         <div class="container">
             <div class="row">
@@ -271,6 +282,10 @@
                                         <a href="#">View All</a>
                                     </div>
                                 </div>
+                            </li>
+
+                            <li class="nav-item" id="logout" style="cursor:pointer;">
+                                <a onclick="logout()">  <i class="notika-icon notika-right-arrow"></i></a>
                             </li>
                         </ul>
                     </div>

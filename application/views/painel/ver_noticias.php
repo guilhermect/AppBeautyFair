@@ -1,3 +1,4 @@
+
         <style>
         button{
             color: white;
@@ -16,6 +17,12 @@
             background:crimson;
         }
         </style>
+        <script>
+            $(function(){
+                //$('#user-list button').css('display','none');
+            })
+        </script>
+       
         <div class="container">
         
             <div class="row">
@@ -48,3 +55,7 @@
         </div> 
 
         <script src="<?php echo base_url('public/painel/firebase/app.js') ?>"></script>
+
+        
+        
+        

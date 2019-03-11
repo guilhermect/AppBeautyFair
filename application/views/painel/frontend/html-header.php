@@ -22,9 +22,9 @@
 
     <!-- owl.carousel CSS
 		============================================ -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.css">
-    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" href="<?php echo base_url('public/painel/css/owl.carousel.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('public/painel/css/owl.theme.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('public/painel/css/owl.transitions.css') ?>">
     <!-- meanmenu CSS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo base_url('public/painel/css/meanmenu/meanmenu.min.css'); ?>">

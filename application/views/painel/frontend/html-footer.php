@@ -72,7 +72,11 @@
 		============================================ -->
     <script src="<?php echo base_url('public/painel/js/data-table/jquery.dataTables.min.js') ?>"></script>
     <script src="<?php echo base_url('public/painel/js/data-table/data-table-act.js') ?>"></script>
-   
+   <!-- icheck JS
+		============================================ -->
+    <script src="<?php echo base_url('public/painel/js/icheck/icheck.min.js') ?>"></script>
+    <script src="<?php echo base_url('public/painel/js/icheck/icheck-active.js') ?>"></script>
+    <script src="<?php echo base_url('public/painel/js/login/login-action.js') ?>"></script>
 </body>
 
 </html>

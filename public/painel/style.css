@@ -3573,7 +3573,7 @@ textarea.auto-size {
 .login-content, .error-page-area{
     min-height:100vh;
     text-align:center;
-    background-color:crimson;
+    background-color:#ececec;
 }
 .login-content:before, .error-page-area:before{
     content:'';

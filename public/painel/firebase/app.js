@@ -17,6 +17,14 @@ function renderUser(doc){
     del_btn.textContent = 'Delete'; 
     upd_btn.textContent = 'Update'; 
 
+    /*var dataSet = [
+        [email.innerHTML, name.innerHTML, del_btn.innerHTML + ' ' + upd_btn.innerHTML]
+    ];
+
+    $('#table').DataTable( {
+        data: dataSet
+    } );*/
+
     tr.appendChild(email);
     tr.appendChild(name);
     tr.appendChild(del_btn);
@@ -26,6 +34,7 @@ function renderUser(doc){
 
     // deleting data
     del_btn.addEventListener('click', (e) => {
+        
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('users').doc(id).delete();
@@ -66,6 +75,8 @@ db.collection('users').orderBy('name').onSnapshot(snapshot => {
         }
     })
 })
+
+
 
 
 
