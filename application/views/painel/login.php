@@ -3,10 +3,10 @@
     margin-top: 0;
 }
 .login-content:before, .error-page-area:before {
-    height: 15vh !important;
+    height: 26vh !important;
 }
 .login-content, .error-page-area {
-    min-height: 76vh !important;
+    min-height: 84vh !important;
 }
 .nk-navigation a {
     background: crimson !important;
