@@ -18,7 +18,7 @@
 
         <h2>Seja Bem Vindo(a) !</h2>
         <!-- Login -->
-        <div class="nk-block toggled" id="user_div">
+        <div class="nk-block toggled" id="l-login">
             <div class="nk-form">
                 <div class="input-group">
                     <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
@@ -51,15 +51,17 @@
                 <div class="input-group">
                     <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-mail"></i></span>
                     <div class="nk-int-st">
-                        <input type="text" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" placeholder="Email" id="user_email_recover_pass">
                     </div>
                 </div>
 
-                <a href="#user_div" data-ma-action="nk-login-switch" data-ma-block="#user_div" class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow"></i></a>
+                <button onclick="redefinePassword()" class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow"></i></button>
             </div>
 
-            <div class="nk-navigation nk-lg-ic rg-ic-stl">
-                <a href="" data-ma-action="nk-login-switch" data-ma-block="#user_div"><i class="notika-icon notika-right-arrow"></i> <span>Login</span></a>
+            <div class="nk-navigation nk-lg-ic">
+            
+                <a href="" data-ma-action="nk-login-switch" data-ma-block="#l-login"><i class="notika-icon notika-right-arrow"></i> <span>Login</span></a>
+                
             </div>
         </div>
     </div>

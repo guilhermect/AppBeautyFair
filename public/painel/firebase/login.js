@@ -21,3 +21,17 @@ function login(){
       });
 }
 
+function redefinePassword(){
+  var auth = firebase.auth();
+  var emailAddress = document.getElementById('user_email_recover_pass').value;
+
+  auth.sendPasswordResetEmail(emailAddress).then(function() {
+    // Email sent.
+    window.alert('Você recebeu um email!');
+    emailAddress.value = '';
+  }).catch(function(error) {
+    // An error happened.
+    window.alert('Erro!');
+  });
+}
+
