@@ -29,6 +29,7 @@
                                     </div>
                                 </div>
                             </li>
+                            <!--
                             <li class="nav-item dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-mail"></i></span></a>
                                 <div role="menu" class="dropdown-menu message-dd animated zoomIn">
@@ -283,6 +284,7 @@
                                     </div>
                                 </div>
                             </li>
+                            -->
 
                             <li class="nav-item" id="logout" style="cursor:pointer;">
                                 <a onclick="logout()">  <i class="notika-icon notika-right-arrow"></i></a>
