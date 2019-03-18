@@ -5,32 +5,39 @@ const formUpd = document.querySelector('#update-user-form');
 // Create element and render user
 function renderUser(doc){
     let tr = document.createElement('tr');
-    let email = document.createElement('td'); 
-    let name = document.createElement('td'); 
+    let title = document.createElement('td'); 
+    let content = document.createElement('td'); 
+    let image = document.createElement('td'); 
+    let date = document.createElement('td'); 
     let del_btn = document.createElement('button');
     let upd_btn = document.createElement('button');
 
 
 
     tr.setAttribute('data-id',doc.id);
-    email.textContent= doc.data().email;
-    name.textContent= doc.data().name;
-    del_btn.innerHTML = '<i class="fa fa-times"></i>'; 
+    title.textContent= doc.data().title;
+    content.textContent= doc.data().content;
+    var img_url = doc.data().image;
+    image.innerHTML= '<img src="'+img_url+'" width="150">';
+    date.textContent= doc.data().date;
+    del_btn.innerHTML = 'x'; 
     upd_btn.innerHTML = '<a style="color:white;" data-toggle="modal" data-target="#myModalsix"><i class="fa fa-refresh"></i></a>';
      
 
     /*var dataSet = [
-        [email.innerHTML, name.innerHTML, del_btn.innerHTML + ' ' + upd_btn.innerHTML]
+        [content.innerHTML, date.innerHTML, del_btn.innerHTML + ' ' + upd_btn.innerHTML]
     ];
 
     $('#table').DataTable( {
         data: dataSet
     } );*/
 
-    tr.appendChild(email);
-    tr.appendChild(name);
-    tr.appendChild(del_btn);
+    tr.appendChild(title);
+    tr.appendChild(content);
+    tr.appendChild(image);
+    tr.appendChild(date);
     tr.appendChild(upd_btn);
+    tr.appendChild(del_btn);
 
     userList.appendChild(tr);
 
@@ -39,7 +46,7 @@ function renderUser(doc){
         
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
-        db.collection('users').doc(id).delete();
+        db.collection('news').doc('hair').collection('items').doc(id).delete();
     });
 
    
@@ -51,13 +58,17 @@ function renderUser(doc){
 if(form){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        db.collection('users').add({
-            email: form.email.value,
-            name: form.name.value 
+        db.collection('news').doc('hair').collection('items').add({
+            title: form.title.value,
+            content: form.content.value,
+            image: form.image.value,
+            date: '04/04/1999'
         })
         alert('Inserido com sucesso');
-        form.email.value = '';
-        form.name.value = '';
+        form.title.value = '';
+        form.content.value = '';
+        form.image.value = '';
+        
     })
 }
 
@@ -66,12 +77,12 @@ if(formUpd){
     formUpd.addEventListener('submit', (e) => {
         e.preventDefault();
         db.collection('users').doc('RoZgMEcw6Jn3EIBNlCrw').update({
-            email: formUpd.email.value,
-            name: formUpd.name.value 
+            content: formUpd.content.value,
+            date: formUpd.date.value 
         })
         alert('Atualizado com sucesso');
-        formUpd.email.value = '';
-        formUpd.name.value = '';
+        formUpd.content.value = '';
+        formUpd.date.value = '';
 
     })
 }
@@ -81,7 +92,7 @@ if(formUpd){
 
 
 //real-time listener
-db.collection('users').orderBy('name').onSnapshot(snapshot => {
+db.collection('news').doc('hair').collection('items').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         if(change.type == 'added'){
@@ -100,11 +111,6 @@ db.collection('users').orderBy('name').onSnapshot(snapshot => {
         renderUser(doc);
     })
 })*/
-
-
-function update(){
-    
-}
 
 
 

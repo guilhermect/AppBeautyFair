@@ -10,11 +10,11 @@
         }
         
         tr button:nth-last-child(1){
-            background:#00C851;
+            background:crimson;
         }
 
         tr button:nth-last-child(2){
-            background:crimson;
+            background:#00C851;
         }
         </style>
         
@@ -27,12 +27,14 @@
                         <div class="basic-tb-hd">
                             <h3>Notícias</h3>
                             <div class="table-responsive">
-                                <table id="table" class="table table-striped table-dark">
-                                    <thead style="background:#2E2E2E;">
+                                <table id="table" class="table table-striped table-dark text-center">
+                                    <thead style="background:#2E2E2E; ">
                                         <tr>
-                                            <th style="color:#fff;">EMAIL</th>
-                                            <th style="color:#fff;">NAME</th>
-                                            <th style="color:#fff;">ACTIONS</th>
+                                            <th style="color:#fff;">Título</th>
+                                            <th style="color:#fff;">Conteúdo</th>
+                                            <th style="color:#fff;">Imagem</th>
+                                            <th style="color:#fff;">Data</th>
+                                            <th style="color:#fff;">Ações</th>
                                         </tr>
                                         
                                     </thead>

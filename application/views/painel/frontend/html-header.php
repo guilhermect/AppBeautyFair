@@ -95,9 +95,12 @@
               width: 884px;
           }
           .header-top-menu .nav.notika-top-nav li .search-dd .search-input{
-            margin:0;
+            margin:10px;
           }
          }
+         th {
+            text-align: center;
+        }
         </style> 
 </head>
 
