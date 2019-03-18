@@ -25,7 +25,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h3>Users List</h3>
+                            <h3>Notícias</h3>
                             <div class="table-responsive">
                                 <table id="table" class="table table-striped table-dark">
                                     <thead style="background:#2E2E2E;">
