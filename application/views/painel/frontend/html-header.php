@@ -87,6 +87,18 @@
         </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+         
+         @media (min-width: 1281px) {
+          .header-top-menu .nav.notika-top-nav li .search-dd {
+              left: -871px;
+              width: 884px;
+          }
+          .header-top-menu .nav.notika-top-nav li .search-dd .search-input{
+            margin:0;
+          }
+         }
+        </style> 
 </head>
 
 <body>
