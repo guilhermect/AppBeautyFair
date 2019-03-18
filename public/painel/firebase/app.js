@@ -1,5 +1,6 @@
 const userList = document.querySelector('#user-list');
 const form = document.querySelector('#add-user-form');
+const formUpd = document.querySelector('#update-user-form');
 
 // Create element and render user
 function renderUser(doc){
@@ -14,8 +15,9 @@ function renderUser(doc){
     tr.setAttribute('data-id',doc.id);
     email.textContent= doc.data().email;
     name.textContent= doc.data().name;
-    del_btn.textContent = 'Delete'; 
-    upd_btn.textContent = 'Update'; 
+    del_btn.innerHTML = '<i class="fa fa-times"></i>'; 
+    upd_btn.innerHTML = '<a style="color:white;" data-toggle="modal" data-target="#myModalsix"><i class="fa fa-refresh"></i></a>';
+     
 
     /*var dataSet = [
         [email.innerHTML, name.innerHTML, del_btn.innerHTML + ' ' + upd_btn.innerHTML]
@@ -38,16 +40,12 @@ function renderUser(doc){
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('users').doc(id).delete();
-    })
-    
+    });
+
+   
+
 }
 
-//getting data
-/*db.collection('users').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderUser(doc);
-    })
-})*/
 
 //saving data
 if(form){
@@ -63,6 +61,25 @@ if(form){
     })
 }
 
+//updating data
+if(formUpd){
+    formUpd.addEventListener('submit', (e) => {
+        e.preventDefault();
+        db.collection('users').doc('RoZgMEcw6Jn3EIBNlCrw').update({
+            email: formUpd.email.value,
+            name: formUpd.name.value 
+        })
+        alert('Atualizado com sucesso');
+        formUpd.email.value = '';
+        formUpd.name.value = '';
+
+    })
+}
+
+
+
+
+
 //real-time listener
 db.collection('users').orderBy('name').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
@@ -76,6 +93,18 @@ db.collection('users').orderBy('name').onSnapshot(snapshot => {
     })
 })
 
+
+//getting data
+/*db.collection('users').get().then((snapshot) => {
+    snapshot.docs.forEach(doc => {
+        renderUser(doc);
+    })
+})*/
+
+
+function update(){
+    
+}
 
 
 
