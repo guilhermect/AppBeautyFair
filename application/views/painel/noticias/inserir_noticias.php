@@ -23,8 +23,8 @@
                                 <div class="form-group">
                                     <label>Conteúdo da Notícia</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" placeholder="" name="content" id="content" >
-                                        
+                                        <br>
+                                        <textarea class="form-control auto-size" rows="2" placeholder="" name="content" id="content"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -36,6 +36,15 @@
                                     <label>Imagem</label>
                                     <div class="nk-int-st">
                                         <input type="text" class="form-control input-sm" placeholder="" name="image" id="image" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-example-int mg-t-15">
+                                <div class="form-group">
+                                    <label>Data</label>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm" value="" name="data" id="data" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -53,3 +62,19 @@
 </div>
 
 <script src="<?php echo base_url('public/painel/firebase/noticias.js') ?>"></script>
+
+<script>
+var d = new Date();
+
+var month = d.getMonth()+1;
+var day = d.getDate();
+
+
+var output = (day<10 ? '0' : '') + day 
+            + '/' + (month<10 ? '0' : '') + month + '/' + d.getFullYear();
+
+
+$(function(){
+    $("#data").val(output);
+})
+</script>

@@ -62,7 +62,7 @@ if(form){
             title: form.title.value,
             content: form.content.value,
             image: form.image.value,
-            date: '04/04/1999'
+            date: form.data.value
         })
         alert('Inserido com sucesso');
         form.title.value = '';
