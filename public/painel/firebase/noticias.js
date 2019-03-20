@@ -15,13 +15,17 @@ function renderUser(doc){
 
 
     tr.setAttribute('data-id',doc.id);
+    tr.setAttribute('title',doc.data().title);
+    tr.setAttribute('content',doc.data().content);
+    tr.setAttribute('image',doc.data().image);
+
     title.textContent= doc.data().title;
     content.textContent= doc.data().content;
     var img_url = doc.data().image;
     image.innerHTML= '<img src="'+img_url+'" width="150">';
     date.textContent= doc.data().date;
-    del_btn.innerHTML = 'x'; 
-    upd_btn.innerHTML = '&#x21ba;';
+    del_btn.textContent = 'x'; 
+    upd_btn.textContent = '↺';
      
 
     /*var dataSet = [
@@ -49,35 +53,40 @@ function renderUser(doc){
         db.collection('news').doc('hair').collection('items').doc(id).delete();
     });
 
-    //document.querySelector("tr button:nth-last-child(2)").setAttribute("data-toggle","modal");
-    //document.querySelector("tr button:nth-last-child(2)").setAttribute("data-target","#myModalsix");
 
-    
 
    //updating data
     upd_btn.addEventListener('click', (e) => {
-        
-        var id = e.target.parentElement.getAttribute('data-id');
-        
+
         document.getElementById("myModalsix").setAttribute("style","display:block;");
+
+
+        var id = e.target.parentElement.getAttribute('data-id');
+        var title = e.target.parentElement.getAttribute('title');
+        var content = e.target.parentElement.getAttribute('content');
+        var image = e.target.parentElement.getAttribute('image');
+
+        formUpd.title.value=title;
+        formUpd.content.value=content;
+        formUpd.image.value=image;
 
         if(formUpd){
 
-        formUpd.addEventListener('submit', (e) => {
-            e.preventDefault();
-            db.collection('news').doc('hair').collection('items').doc(id).update({
-                title:formUpd.title.value,
-                content: formUpd.content.value,
-                image: formUpd.image.value,
-            })
-            alert('Atualizado com sucesso');
-
-            document.getElementById("myModalsix").setAttribute("style","display:none;");
-    
-        })
+            formUpd.addEventListener('submit', (e) => {
+                e.preventDefault();
+                db.collection('news').doc('hair').collection('items').doc(id).update({
+                    title:formUpd.title.value,
+                    content: formUpd.content.value,
+                    image: formUpd.image.value,
+                })
+                //alert('Atualizado com sucesso');
+                //location.reload()
+                
+                document.getElementById("myModalsix").setAttribute("style","display:none;");
+        
+            });
         
         }
-
 
     });
 
@@ -104,21 +113,6 @@ if(form){
     })
 }
 
-//updating data
-if(formUpd){
-    formUpd.addEventListener('submit', (e) => {
-        e.preventDefault();
-        db.collection('users').doc('RoZgMEcw6Jn3EIBNlCrw').update({
-            content: formUpd.content.value,
-            date: formUpd.date.value 
-        })
-        alert('Atualizado com sucesso');
-        formUpd.content.value = '';
-        formUpd.date.value = '';
-
-    })
-}
-
 
 
 
@@ -128,10 +122,15 @@ db.collection('news').doc('hair').collection('items').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         if(change.type == 'added'){
-            renderUser(change.doc)
+            renderUser(change.doc);
         } else if(change.type == 'removed'){
             let tr = userList.querySelector('[data-id=' + change.doc.id + ']'); 
             userList.removeChild(tr);          
+        } else if(change.type == 'modified'){
+               
+           let tr = userList.querySelector('[data-id=' + change.doc.id + ']'); 
+           userList.removeChild(tr);
+           renderUser(change.doc);
         }
     })
 })
