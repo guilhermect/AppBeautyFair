@@ -27,7 +27,7 @@
                         <div class="basic-tb-hd">
                             <h3>Notícias</h3>
                             <div class="table-responsive">
-                                <table id="table" class="table table-striped table-dark text-center">
+                                <table  class="table table-striped table-dark text-center">
                                     <thead style="background:#2E2E2E; ">
                                         <tr>
                                             <th style="color:#fff;">Título</th>

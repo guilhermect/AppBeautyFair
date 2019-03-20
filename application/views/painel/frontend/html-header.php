@@ -61,7 +61,12 @@
     <!-- Data Table JS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo base_url('public/painel/css/jquery.dataTables.min.css') ?>">
-
+     <!-- Sweet Alert JS
+		============================================ -->
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
         
         <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>

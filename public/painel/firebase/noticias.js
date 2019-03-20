@@ -2,6 +2,7 @@ const userList = document.querySelector('#user-list');
 const form = document.querySelector('#add-user-form');
 const formUpd = document.querySelector('#update-user-form');
 
+
 // Create element and render user
 function renderUser(doc){
     let tr = document.createElement('tr');
@@ -83,15 +84,17 @@ function renderUser(doc){
                 //location.reload()
                 
                 document.getElementById("myModalsix").setAttribute("style","display:none;");
-        
+                
             });
         
         }
 
+        
+
     });
 
-   
-
+ 
+    //document.querySelector("table").setAttribute("id","data-table-basic");
 }
 
 
@@ -105,7 +108,7 @@ if(form){
             image: form.image.value,
             date: form.data.value
         })
-        alert('Inserido com sucesso');
+        swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
         form.title.value = '';
         form.content.value = '';
         form.image.value = '';
@@ -132,7 +135,9 @@ db.collection('news').doc('hair').collection('items').onSnapshot(snapshot => {
            userList.removeChild(tr);
            renderUser(change.doc);
         }
+        
     })
+
 })
 
 
@@ -142,6 +147,7 @@ db.collection('news').doc('hair').collection('items').onSnapshot(snapshot => {
         renderUser(doc);
     })
 })*/
+
 
 
 
