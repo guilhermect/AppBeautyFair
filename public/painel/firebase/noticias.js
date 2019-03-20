@@ -21,7 +21,7 @@ function renderUser(doc){
     image.innerHTML= '<img src="'+img_url+'" width="150">';
     date.textContent= doc.data().date;
     del_btn.innerHTML = 'x'; 
-    upd_btn.innerHTML = '<a style="color:white;" data-toggle="modal" data-target="#myModalsix"><i class="fa fa-refresh"></i></a>';
+    upd_btn.innerHTML = '&#x21ba;';
      
 
     /*var dataSet = [
@@ -47,6 +47,38 @@ function renderUser(doc){
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('news').doc('hair').collection('items').doc(id).delete();
+    });
+
+    //document.querySelector("tr button:nth-last-child(2)").setAttribute("data-toggle","modal");
+    //document.querySelector("tr button:nth-last-child(2)").setAttribute("data-target","#myModalsix");
+
+    
+
+   //updating data
+    upd_btn.addEventListener('click', (e) => {
+        
+        var id = e.target.parentElement.getAttribute('data-id');
+        
+        document.getElementById("myModalsix").setAttribute("style","display:block;");
+
+        if(formUpd){
+
+        formUpd.addEventListener('submit', (e) => {
+            e.preventDefault();
+            db.collection('news').doc('hair').collection('items').doc(id).update({
+                title:formUpd.title.value,
+                content: formUpd.content.value,
+                image: formUpd.image.value,
+            })
+            alert('Atualizado com sucesso');
+
+            document.getElementById("myModalsix").setAttribute("style","display:none;");
+    
+        })
+        
+        }
+
+
     });
 
    
