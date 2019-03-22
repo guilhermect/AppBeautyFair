@@ -1,3 +1,10 @@
+<style>
+    #uploader {
+        -webkit-appearance: none;
+        width: 100%;
+        border: 1px solid black;
+    }
+</style>
 <div class="container">
         
             <div class="row">
@@ -34,8 +41,9 @@
                             <div class="form-example-int mg-t-15">
                                 <div class="form-group">
                                     <label>Imagem</label>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" placeholder="" name="image" id="image" >
+                                    <div class="nk-int-st mg-t-15">
+                                        <progress value="0" max="100" id="uploader">0%</progress>
+                                        <input type="file" class="form-control input-sm" value="upload" id="fileButton" >
                                     </div>
                                 </div>
                             </div>
