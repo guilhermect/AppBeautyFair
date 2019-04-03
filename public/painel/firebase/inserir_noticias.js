@@ -2,23 +2,7 @@
 const form = document.querySelector('#add-user-form');
 
 
-//saving data
-if(form){
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        db.collection('news').doc('hair').collection('items').add({
-            title: form.title.value,
-            content: form.content.value,
-            image: "",
-            date: form.data.value
-        })
-        swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
-        form.title.value = '';
-        form.content.value = '';
-        form.image.value = '';
-        
-    })
-}
+
 
 
 
@@ -35,11 +19,11 @@ fileButton.addEventListener('change', function(e){
     //Create storage ref
     var storageRef = firebase.storage().ref('news/' + file.name);
 
-    //const storageRef.child('news/' + file.name).getDownloadURL();
-
 
     //Upload file
     var task = storageRef.put(file);
+
+
 
     //update progress bar
     task.on('state_changed', 
@@ -55,9 +39,37 @@ fileButton.addEventListener('change', function(e){
         },
 
         function complete(){
+           
+            /*storageRef.child('news/' + file.name).getDownloadURL().then(function(url){
 
+            });*/
+
+            var imageField = getElementById('imageURL');
+
+            imageField.value='asasaas.jpg';
+
+            //saving data
+            if(form){
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    db.collection('news').doc('hair').collection('items').add({
+                        title: form.title.value,
+                        content: form.content.value,
+                        image: form.image.value,
+                        date: form.data.value
+                    })
+                    swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
+                    form.title.value = '';
+                    form.content.value = '';
+                    form.image.value = '';
+                    
+                })
+            }
         }
 
     );
 });
+
+
+
 

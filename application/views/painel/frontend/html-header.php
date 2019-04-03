@@ -93,6 +93,8 @@
             const db = firebase.firestore();
             db.settings({ timestampsInSnapshots: true });
 
+            const storage = firebase.storage();
+
             
         </script>
 
