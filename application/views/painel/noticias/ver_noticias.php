@@ -111,7 +111,7 @@
             </div>
         </div>
 
-        <script src="<?php echo base_url('public/painel/firebase/noticias.js') ?>"></script>
+        <script src="<?php echo base_url('public/painel/firebase/ver_noticias.js') ?>"></script>
 
         <script>
         $(function(){

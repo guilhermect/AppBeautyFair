@@ -69,7 +69,7 @@
             </div>
 </div>
 
-<script src="<?php echo base_url('public/painel/firebase/noticias.js') ?>"></script>
+<script src="<?php echo base_url('public/painel/firebase/inserir_noticias.js') ?>"></script>
 
 <script>
 var d = new Date();

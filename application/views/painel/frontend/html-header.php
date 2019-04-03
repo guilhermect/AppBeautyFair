@@ -67,28 +67,33 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+  
         
-        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+        <!--<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>-->
         <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-messaging.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-functions.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
 
         <script>
             // Initialize Firebase
+            
             var config = {
-                apiKey: "AIzaSyANHQUh5_murAHkZGsxKEqd4qPMAoLKSPU",
-                authDomain: "beauty-fair-214318.firebaseapp.com",
-                databaseURL: "https://beauty-fair-214318.firebaseio.com",
-                projectId: "beauty-fair-214318",
-                storageBucket: "beauty-fair-214318.appspot.com",
-                messagingSenderId: "283508537411"
+              apiKey: "AIzaSyANHQUh5_murAHkZGsxKEqd4qPMAoLKSPU",
+              authDomain: "beauty-fair-214318.firebaseapp.com",
+              databaseURL: "https://beauty-fair-214318.firebaseio.com",
+              projectId: "beauty-fair-214318",
+              storageBucket: "beauty-fair-214318.appspot.com",
+              messagingSenderId: "283508537411"
+                
             };
             firebase.initializeApp(config);
             const db = firebase.firestore();
             db.settings({ timestampsInSnapshots: true });
+
+            
         </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
