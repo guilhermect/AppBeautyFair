@@ -38,10 +38,6 @@ fileButton.addEventListener('change', function(e){
             const form = document.querySelector('#add-user-form');
             
             
-            
-            
-            
-            
             //Upload File
             
             var uploader = document.getElementById('uploader');
@@ -58,8 +54,7 @@ fileButton.addEventListener('change', function(e){
             
                 //Upload file
                 var task = storageRef.put(file);
-            
-            
+
             
                 //update progress bar
                 task.on('state_changed', 
@@ -115,8 +110,6 @@ fileButton.addEventListener('change', function(e){
 
         function complete(){
            
-            
-
 
             //saving data
             if(form){

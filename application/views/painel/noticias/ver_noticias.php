@@ -16,10 +16,15 @@
         tr button:nth-last-child(2){
             background:#00C851;
         }
+
+        #uploader {
+            -webkit-appearance: none;
+            width: 100%;
+            border: 1px solid black;
+        }
         </style>
-        
-       
-        <div class="container">
+
+  <div class="container">
         
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -92,11 +97,22 @@
                                 <div class="form-example-int mg-t-15">
                                     <div class="form-group">
                                         <label>Imagem</label>
-                                        <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="" name="image" id="image" >
+                                        <div class="nk-int-st mg-t-15">
+                                            <progress value="0" max="100" id="uploader">0%</progress>
+                                            <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" >
+                                        
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-example-int mg-t-15">
+                                <div class="form-group">
+                                    <label>Data</label>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm" value="" name="data" id="data" readonly>
+                                    </div>
+                                </div>
+                            </div>
                                 
                             </div>   
                         </div>
@@ -119,5 +135,19 @@
                 $("#myModalsix").hide();
             })
         })
+
+        var d = new Date();
+
+        var month = d.getMonth()+1;
+        var day = d.getDate();
+
+
+        var output = (day<10 ? '0' : '') + day 
+                    + '/' + (month<10 ? '0' : '') + month + '/' + d.getFullYear();
+
+
+        $(function(){
+            $("#data").val(output);
+        })
         </script>
-        
+
