@@ -43,8 +43,8 @@
                                     <label>Imagem</label>
                                     <div class="nk-int-st mg-t-15">
                                         <progress value="0" max="100" id="uploader">0%</progress>
-                                        <input type="file" class="form-control input-sm" value="upload" id="fileButton" >
-                                        <input type="text" name="image" id="imageURL" value="">
+                                        <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" >
+                                       
                                     </div>
                                 </div>
                             </div>

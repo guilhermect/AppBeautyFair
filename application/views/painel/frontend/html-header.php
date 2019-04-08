@@ -80,7 +80,7 @@
         <script>
 
             //BASE PATH
-            const base_path='http://dkmahomologar.ga/appbeautyfair/';
+            const base_path='http://localhost/AppBeautyFair/';
 
             // Initialize Firebase
             
