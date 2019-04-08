@@ -1,7 +1,7 @@
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      window.location='http://localhost/AppBeautyFair/painel/ver_noticias';
+      window.location='http://dkmahomologar.ga/appbeautyfair/painel/ver_noticias';
     } else {
       //window.location='index';
     }

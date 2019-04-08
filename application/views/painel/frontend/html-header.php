@@ -78,6 +78,10 @@
         <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
 
         <script>
+
+            //BASE PATH
+            const base_path='http://dkmahomologar.ga/appbeautyfair/';
+
             // Initialize Firebase
             
             var config = {
