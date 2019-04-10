@@ -92,12 +92,11 @@
                                     </div>
                                 </div>
 
-                                
-
                                 <div class="form-example-int mg-t-15">
                                     <div class="form-group">
                                         <label>Imagem</label>
                                         <div class="nk-int-st mg-t-15">
+                                            <img width="100" id="img-atual" style="padding-bottom:2px;">
                                             <progress value="0" max="100" id="uploader">0%</progress>
                                             <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" >
                                         
