@@ -12,7 +12,7 @@
     background: crimson !important;
 }
 </style>
-<script src="<?php echo base_url('public/painel/firebase/login.js') ?>"></script>
+<script src="<?php echo base_url('public/painel/firebase/login/login.js') ?>"></script>
 
 <div class="login-content">
 
@@ -23,13 +23,13 @@
                 <div class="input-group">
                     <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
                     <div class="nk-int-st">
-                        <input type="text" class="form-control" placeholder="Username" id="email_field">
+                        <input type="text" class="form-control" placeholder="Email" id="email_field">
                     </div>
                 </div>
                 <div class="input-group mg-t-15">
                     <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-edit"></i></span>
                     <div class="nk-int-st">
-                        <input type="password" class="form-control" placeholder="Password" id="pass_field">
+                        <input type="password" class="form-control" placeholder="Senha" id="pass_field">
                     </div>
                 </div>
                 

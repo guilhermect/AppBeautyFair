@@ -1,4 +1,4 @@
-<script src="<?php echo base_url('public/painel/firebase/logout.js') ?>"></script>
+<script src="<?php echo base_url('public/painel/firebase/login/logout.js') ?>"></script>
 <script>
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {

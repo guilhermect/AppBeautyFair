@@ -30,7 +30,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h3>Notícias</h3>
+                            <h3>Cursos</h3>
                             <div class="table-responsive">
                                 <table  class="table table-striped table-dark text-center">
                                     <thead style="background:#2E2E2E; ">
@@ -38,7 +38,8 @@
                                             <th style="color:#fff;">Título</th>
                                             <th style="color:#fff;">Conteúdo</th>
                                             <th style="color:#fff;">Imagem</th>
-                                            <th style="color:#fff;">Data</th>
+                                            <th style="color:#fff;">Categoria</th>
+                                            <th style="color:#fff;">Data do Curso</th>
                                             <th style="color:#fff;">Ações</th>
                                         </tr>
                                         
@@ -150,5 +151,5 @@
         })
         </script>
 
-        <script src="<?php echo base_url('public/painel/firebase/noticias/ver_noticias.js') ?>"></script>
+        <script src="<?php echo base_url('public/painel/firebase/cursos/ver_cursos.js') ?>"></script>
 

@@ -5,13 +5,15 @@
         border: 1px solid black;
     }
 </style>
+
+
 <div class="container">
         
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap">
                         <div class="cmp-tb-hd">
-                            <h2>Inserir Notícia</h2>
+                            <h2>Inserir Curso</h2>
                             
 
                         </div>
@@ -28,7 +30,7 @@
 
                             <div class="form-example-int mg-t-15">
                                 <div class="form-group">
-                                    <label>Conteúdo da Notícia</label>
+                                    <label>Conteúdo do Curso</label>
                                     <div class="nk-int-st">
                                         <br>
                                         <textarea class="form-control auto-size" rows="2" placeholder="" name="content" id="content"></textarea>
@@ -51,12 +53,14 @@
 
                             <div class="form-example-int mg-t-15" style="">
                                 <div class="form-group">
-                                    <label>Data</label>
+                                    <label>Data do Curso</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" value="" name="data" id="data" readonly>
+                                    <input type="text" class="form-control input-sm" value="" name="data_curso" id="data-curso">  
                                     </div>
                                 </div>
                             </div>
+
+                            <input type="hidden" class="form-control input-sm" value="" name="data" id="data" readonly>
                             
                         
                             <div class="form-example-int mg-t-15">

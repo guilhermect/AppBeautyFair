@@ -13,7 +13,8 @@ function renderUser(doc){
     let title = document.createElement('td'); 
     let content = document.createElement('td'); 
     let image = document.createElement('td'); 
-    let date = document.createElement('td'); 
+    let category = document.createElement('td'); 
+    let course_date = document.createElement('td'); 
     let del_btn = document.createElement('button');
     let upd_btn = document.createElement('button');
 
@@ -22,12 +23,15 @@ function renderUser(doc){
     tr.setAttribute('title',doc.data().title);
     tr.setAttribute('content',doc.data().content);
     tr.setAttribute('image',doc.data().image);
+    tr.setAttribute('category',doc.data().category);
+    tr.setAttribute('course_date',doc.data().date);
 
     title.textContent= doc.data().title;
     content.textContent= doc.data().content;
     var img_url = doc.data().image;
     image.innerHTML= '<img src="'+img_url+'" width="150">';
-    date.textContent= doc.data().date;
+    category.textContent= doc.data().category;
+    course_date.textContent= doc.data().course_date;
     del_btn.textContent = 'x'; 
     upd_btn.textContent = '↺';
      
@@ -43,7 +47,8 @@ function renderUser(doc){
     tr.appendChild(title);
     tr.appendChild(content);
     tr.appendChild(image);
-    tr.appendChild(date);
+    tr.appendChild(category);
+    tr.appendChild(course_date);
     tr.appendChild(upd_btn);
     tr.appendChild(del_btn);
 
@@ -54,7 +59,7 @@ function renderUser(doc){
         
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
-        db.collection('news').doc('hair').collection('items').doc(id).delete();
+        db.collection('courses').doc(id).delete();
     });
 
 
@@ -68,6 +73,10 @@ function renderUser(doc){
         var id = e.target.parentElement.getAttribute('data-id');
         var title = e.target.parentElement.getAttribute('title');
         var content = e.target.parentElement.getAttribute('content');
+        var category = e.target.parentElement.getAttribute('category');
+        var course_date = e.target.parentElement.getAttribute('course_date');
+        
+        var date= document.getElementById('data').value;
 
         var img='';
         
@@ -82,6 +91,8 @@ function renderUser(doc){
 
         formUpd.title.value=title;
         formUpd.content.value=content;
+        formUpd.category.value=category;
+        formUpd.course_date.value=course_date;
         img_atual.setAttribute('src',img);
         fileButton.setAttribute('value',img);
         
@@ -92,10 +103,12 @@ function renderUser(doc){
 
             formUpd.addEventListener('submit', (e) => {
                 e.preventDefault();
-                db.collection('news').doc('hair').collection('items').doc(id).update({
+                db.collection('courses').doc(id).update({
                     title:formUpd.title.value,
                     content: formUpd.content.value,
-                    image: img
+                    image: img,
+                    category: category,
+                    date: course_date
                 })
                 //alert('Atualizado com sucesso');
                 
@@ -117,7 +130,7 @@ function renderUser(doc){
 
 
 //real-time listener
-db.collection('news').doc('hair').collection('items').onSnapshot(snapshot => {
+db.collection('courses').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         if(change.type == 'added'){
@@ -210,7 +223,7 @@ fileButton.addEventListener('change', function(e){
                             
                                 form.addEventListener('submit', (e) => {
                                     e.preventDefault();
-                                    db.collection('news').doc('hair').collection('items').add({
+                                    db.collection('courses').add({
                                         title: form.title.value,
                                         content: form.content.value,
                                         image: downloadURL,
