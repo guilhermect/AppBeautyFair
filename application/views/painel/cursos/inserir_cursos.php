@@ -18,7 +18,7 @@
 
                         </div>
 
-                        <form id="add-user-form">
+                        <form id="add-form">
                             <div class="form-example-int">
                                 <div class="form-group">
                                     <label>Título</label>
@@ -45,8 +45,28 @@
                                     <label>Imagem</label>
                                     <div class="nk-int-st mg-t-15">
                                         <progress value="0" max="100" id="uploader">0%</progress>
-                                        <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" >
+                                        <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" required>
                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-example-int">
+                                <div class="form-group">
+                                    <label>Categoria</label>
+                                    <div class="nk-int-st">
+
+                                    <div class="fm-checkbox">
+                                        <label><input type="radio" name="category"  class="category" value="Hair"> <i></i> Hair</label> 
+                                        &nbsp&nbsp&nbsp&nbsp
+                                        <label><input type="radio" name="category"  class="category" value="Estética"> <i></i> Estética</label>
+                                        &nbsp&nbsp&nbsp&nbsp
+                                        <label><input type="radio" name="category"  class="category" value="Manicure"> <i></i> Manicure</label>
+                                        &nbsp&nbsp&nbsp&nbsp
+                                        <label><input type="radio" name="category"  class="category" value="Micropigmentação"> <i></i> Micropigmentação</label>
+                                    </div>
+
+                                        <!--<input type="text"  class="form-control input-sm" placeholder=""  >-->
                                     </div>
                                 </div>
                             </div>
@@ -91,5 +111,5 @@
 </script>
 
 
-<script src="<?php echo base_url('public/painel/firebase/noticias/inserir_noticias.js') ?>"></script>
+<script src="<?php echo base_url('public/painel/firebase/cursos/inserir_cursos.js') ?>"></script>
 

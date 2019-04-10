@@ -1,9 +1,5 @@
 
-const form = document.querySelector('#add-user-form');
-
-
-
-
+const form = document.querySelector('#add-form');
 
 
 //Upload File
@@ -17,7 +13,7 @@ fileButton.addEventListener('change', function(e){
     var file = e.target.files[0];
 
     //Create storage ref
-    var storageRef = firebase.storage().ref('news/' + file.name);
+    var storageRef = firebase.storage().ref('courses/' + file.name);
 
 
     //Upload file
@@ -43,19 +39,28 @@ fileButton.addEventListener('change', function(e){
 
             //saving data
             if(form){
+
+                var checkedValue = document.querySelector('.category:checked').value;
+
+
                 task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+
                 
                     form.addEventListener('submit', (e) => {
                         e.preventDefault();
-                        db.collection('news').doc('hair').collection('items').add({
+                        db.collection('courses').add({
                             title: form.title.value,
                             content: form.content.value,
                             image: downloadURL,
+                            category: checkedValue,
+                            course_date: form.data_curso.value,
                             date: form.data.value
                         })
-                        swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
+                        swal( "Inserido com sucesso" ,  "Veja na página 'Ver cursos'!" ,  "success" );
                         form.title.value = '';
                         form.content.value = '';
+                        checkedValue = '';
+                        form.data_curso.value = '';
                         fileButton.value='';
                         uploader.value='';
                         

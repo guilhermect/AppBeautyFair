@@ -1,4 +1,4 @@
-const userList = document.querySelector('#user-list');  
+const courseList = document.querySelector('#user-list');  
 const formUpd = document.querySelector('#update-user-form');
 var img_atual = document.getElementById('img-atual');
 
@@ -8,7 +8,7 @@ var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
 
 // Create element and render user
-function renderUser(doc){
+function renderCourse(doc){
     let tr = document.createElement('tr');
     let title = document.createElement('td'); 
     let content = document.createElement('td'); 
@@ -24,7 +24,7 @@ function renderUser(doc){
     tr.setAttribute('content',doc.data().content);
     tr.setAttribute('image',doc.data().image);
     tr.setAttribute('category',doc.data().category);
-    tr.setAttribute('course_date',doc.data().date);
+    tr.setAttribute('course_date',doc.data().course_date);
 
     title.textContent= doc.data().title;
     content.textContent= doc.data().content;
@@ -52,7 +52,7 @@ function renderUser(doc){
     tr.appendChild(upd_btn);
     tr.appendChild(del_btn);
 
-    userList.appendChild(tr);
+    courseList.appendChild(tr);
 
     // deleting data
     del_btn.addEventListener('click', (e) => {
@@ -76,16 +76,16 @@ function renderUser(doc){
         var category = e.target.parentElement.getAttribute('category');
         var course_date = e.target.parentElement.getAttribute('course_date');
         
-        var date= document.getElementById('data').value;
+        //var date= document.getElementById('data').value;
 
         var img='';
         
         
         if(document.getElementById("fileButton").value != "") {
             img='sdds';
-         } else {
+        } else {
             img = e.target.parentElement.getAttribute('image');
-         }
+        }
 
 
 
@@ -93,6 +93,7 @@ function renderUser(doc){
         formUpd.content.value=content;
         formUpd.category.value=category;
         formUpd.course_date.value=course_date;
+        //formUpd.data.value=date;
         img_atual.setAttribute('src',img);
         fileButton.setAttribute('value',img);
         
@@ -107,14 +108,18 @@ function renderUser(doc){
                     title:formUpd.title.value,
                     content: formUpd.content.value,
                     image: img,
-                    category: category,
-                    date: course_date
+                    category: formUpd.category.value,
+                    course_date: formUpd.course_date.value,
+                    //date: date,
                 })
                 //alert('Atualizado com sucesso');
                 
                 
                 document.getElementById("myModalsix").setAttribute("style","display:none;");
-                //location.reload()
+
+                setTimeout(function(){
+                    window.location.reload(1);
+                 }, 250);
             });
         
         }
@@ -134,15 +139,15 @@ db.collection('courses').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         if(change.type == 'added'){
-            renderUser(change.doc);
+            renderCourse(change.doc);
         } else if(change.type == 'removed'){
-            let tr = userList.querySelector('[data-id=' + change.doc.id + ']'); 
-            userList.removeChild(tr);          
+            let tr = courseList.querySelector('[data-id=' + change.doc.id + ']'); 
+            courseList.removeChild(tr);          
         } else if(change.type == 'modified'){
                
-           let tr = userList.querySelector('[data-id=' + change.doc.id + ']'); 
-           userList.removeChild(tr);
-           renderUser(change.doc);
+           let tr = courseList.querySelector('[data-id=' + change.doc.id + ']'); 
+           courseList.removeChild(tr);
+           renderCourse(change.doc);
         }
         
     })
@@ -153,7 +158,7 @@ db.collection('courses').onSnapshot(snapshot => {
 //getting data
 /*db.collection('users').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
-        renderUser(doc);
+        renderCourse(doc);
     })
 })*/
 
@@ -163,7 +168,7 @@ fileButton.addEventListener('change', function(e){
     var file = e.target.files[0];
 
     //Create storage ref
-    var storageRef = firebase.storage().ref('news/' + file.name);
+    var storageRef = firebase.storage().ref('courses/' + file.name);
 
 
     //Upload file
@@ -181,74 +186,14 @@ fileButton.addEventListener('change', function(e){
         },
 
         function error(err){
-            const form = document.querySelector('#add-user-form');
             
-            
-            //Upload File
-            
-            var uploader = document.getElementById('uploader');
-            var fileButton = document.getElementById('fileButton');
-            
-            //Listen for file selection
-            fileButton.addEventListener('change', function(e){
-                //Get file
-                var file = e.target.files[0];
-            
-                //Create storage ref
-                var storageRef = firebase.storage().ref('news/' + file.name);
-            
-            
-                //Upload file
-                var task = storageRef.put(file);
+  
 
-            
-                //update progress bar
-                task.on('state_changed', 
-            
-                    function progress(snapshot){
-                        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        uploader.value = percentage;
-            
-                    },
-            
-                    function error(err){
-            
-                    },
-            
-                    function complete(){
+        },
 
-                        //saving data
-                        if(form){
-                            task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-                            
-                                form.addEventListener('submit', (e) => {
-                                    e.preventDefault();
-                                    db.collection('courses').add({
-                                        title: form.title.value,
-                                        content: form.content.value,
-                                        image: downloadURL,
-                                        date: form.data.value
-                                    })
-                                    swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
-                                    form.title.value = '';
-                                    form.content.value = '';
-                                    fileButton.value='';
-                                    uploader.value='';
-                                    
-                                })
-            
-                            });
-                        }
-                    }
-            
-                );
-            });
-            
-            
-            
-            
-            
+        function complete(){
 
+                       
         },
 
     );
