@@ -97,11 +97,28 @@ function renderCourse(doc){
             img = e.target.parentElement.getAttribute('image');
         }
 
+        
+        if(category=='Maquiagem'){
+            document.querySelector('#maquiagemRadio').setAttribute("checked","");
+        } else 
+        
+        if(category=='Hair'){
+            document.querySelector('#hairRadio').setAttribute("checked","");
+        } else 
+
+        if(category=='Manicure'){
+            document.querySelector('#manicureRadio').setAttribute("checked","");
+        } else
+
+        if(category=='Estética'){
+            document.querySelector('#esteticaRadio').setAttribute("checked","");
+        }
+
 
 
         formUpd.title.value=title;
-        formUpd.content.value=content;
-        formUpd.category.value=category;
+        formUpd.content.value=content;        
+
         formUpd.course_date.value=course_date;
         formUpd.url.value=url;
         formUpd.address.value=address;

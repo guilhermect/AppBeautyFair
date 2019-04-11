@@ -108,13 +108,13 @@
                                     </div>
 
                                     <div class="fm-checkbox">
-                                        <label><input type="radio" name="category"  class="category" value="Hair"> <i></i> Hair</label> 
+                                        <label><input type="radio" name="category"  class="category" id="hairRadio" value="Hair"> <i></i> Hair</label> 
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category" value="Estética"> <i></i> Estética</label>
+                                        <label><input type="radio" name="category"  class="category" id="esteticaRadio" value="Estética"> <i></i> Estética</label>
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category" value="Manicure"> <i></i> Manicure</label>
+                                        <label><input type="radio" name="category"  class="category" id="manicureRadio" value="Manicure"> <i></i> Manicure</label>
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category" value="Maquiagem"> <i></i> Maquiagem</label>
+                                        <label><input type="radio" name="category"  class="category" id="maquiagemRadio" value="Maquiagem"> <i></i> Maquiagem</label>
                                     </div>
 
                                     <div class="form-example-int mg-t-15" style="">
