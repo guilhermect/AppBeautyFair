@@ -40,6 +40,8 @@
                                             <th style="color:#fff;">Imagem</th>
                                             <th style="color:#fff;">Categoria</th>
                                             <th style="color:#fff;">Data do Curso</th>
+                                            <th style="color:#fff;">URL</th>
+                                            <th style="color:#fff;">Local</th>
                                             <th style="color:#fff;">Ações</th>
                                         </tr>
                                         
@@ -70,7 +72,7 @@
                         <div class="row">
                             <div class="form-example-wrap">
                                 <div class="cmp-tb-hd">
-                                    <h2>Atualizar Notícia</h2>
+                                    <h2>Atualizar Curso</h2>
                                 </div>
 
                                 <form id="update-user-form">
@@ -85,7 +87,7 @@
 
                                     <div class="form-example-int mg-t-15">
                                         <div class="form-group">
-                                            <label>Conteúdo da Notícia</label>
+                                            <label>Conteúdo do Curso</label>
                                             <div class="nk-int-st">
                                                 <br>
                                                 <textarea class="form-control auto-size" rows="2" placeholder="" name="content" id="content"></textarea>
@@ -112,7 +114,7 @@
                                         &nbsp&nbsp&nbsp&nbsp
                                         <label><input type="radio" name="category"  class="category" value="Manicure"> <i></i> Manicure</label>
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category" value="Micropigmentação"> <i></i> Micropigmentação</label>
+                                        <label><input type="radio" name="category"  class="category" value="Maquiagem"> <i></i> Maquiagem</label>
                                     </div>
 
                                     <div class="form-example-int mg-t-15" style="">
@@ -120,6 +122,24 @@
                                             <label>Data do Curso</label>
                                             <div class="nk-int-st">
                                             <input type="text" class="form-control input-sm" value="" name="course_date" id="course_date">  
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-example-int mg-t-15" style="">
+                                        <div class="form-group">
+                                            <label>URL</label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" name="url" id="url">  
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-example-int mg-t-15" style="">
+                                        <div class="form-group">
+                                            <label>Local</label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" name="address" id="address">  
                                             </div>
                                         </div>
                                     </div>

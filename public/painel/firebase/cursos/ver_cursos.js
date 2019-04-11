@@ -15,6 +15,8 @@ function renderCourse(doc){
     let image = document.createElement('td'); 
     let category = document.createElement('td'); 
     let course_date = document.createElement('td'); 
+    let url = document.createElement('td'); 
+    let address = document.createElement('td'); 
     let del_btn = document.createElement('button');
     let upd_btn = document.createElement('button');
 
@@ -25,6 +27,8 @@ function renderCourse(doc){
     tr.setAttribute('image',doc.data().image);
     tr.setAttribute('category',doc.data().category);
     tr.setAttribute('course_date',doc.data().course_date);
+    tr.setAttribute('url',doc.data().url);
+    tr.setAttribute('address',doc.data().address);
 
     title.textContent= doc.data().title;
     content.textContent= doc.data().content;
@@ -32,6 +36,8 @@ function renderCourse(doc){
     image.innerHTML= '<img src="'+img_url+'" width="150">';
     category.textContent= doc.data().category;
     course_date.textContent= doc.data().course_date;
+    url.textContent= doc.data().url;
+    address.textContent= doc.data().address;
     del_btn.textContent = 'x'; 
     upd_btn.textContent = '↺';
      
@@ -49,6 +55,8 @@ function renderCourse(doc){
     tr.appendChild(image);
     tr.appendChild(category);
     tr.appendChild(course_date);
+    tr.appendChild(url);
+    tr.appendChild(address);
     tr.appendChild(upd_btn);
     tr.appendChild(del_btn);
 
@@ -75,6 +83,8 @@ function renderCourse(doc){
         var content = e.target.parentElement.getAttribute('content');
         var category = e.target.parentElement.getAttribute('category');
         var course_date = e.target.parentElement.getAttribute('course_date');
+        var url = e.target.parentElement.getAttribute('url');
+        var address = e.target.parentElement.getAttribute('address');
         
         //var date= document.getElementById('data').value;
 
@@ -93,6 +103,8 @@ function renderCourse(doc){
         formUpd.content.value=content;
         formUpd.category.value=category;
         formUpd.course_date.value=course_date;
+        formUpd.url.value=url;
+        formUpd.address.value=address;
         //formUpd.data.value=date;
         img_atual.setAttribute('src',img);
         fileButton.setAttribute('value',img);
@@ -110,6 +122,8 @@ function renderCourse(doc){
                     image: img,
                     category: formUpd.category.value,
                     course_date: formUpd.course_date.value,
+                    url: formUpd.url.value,
+                    address: formUpd.address.value,
                     //date: date,
                 })
                 //alert('Atualizado com sucesso');
@@ -119,7 +133,7 @@ function renderCourse(doc){
 
                 setTimeout(function(){
                     window.location.reload(1);
-                 }, 250);
+                 }, 500);
             });
         
         }

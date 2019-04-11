@@ -1,4 +1,3 @@
-
 const form = document.querySelector('#add-form');
 
 
@@ -53,18 +52,22 @@ fileButton.addEventListener('change', function(e){
                             content: form.content.value,
                             image: downloadURL,
                             category: checkedValue,
-                            course_date: form.data_curso.value,
-                            date: form.data.value
-                        })
+                            //course_date: form.course_date.value,
+                            url: form.url.value,
+                            address: form.address.value,
+                            course_date: form.data.value
+                        });
                         swal( "Inserido com sucesso" ,  "Veja na página 'Ver cursos'!" ,  "success" );
                         form.title.value = '';
                         form.content.value = '';
+                        form.url.value = '';
+                        form.address.value = '';
                         checkedValue = '';
-                        form.data_curso.value = '';
+                        //form.course_date.value = '';
                         fileButton.value='';
                         uploader.value='';
                         
-                    })
+                    });
 
                 });
             }

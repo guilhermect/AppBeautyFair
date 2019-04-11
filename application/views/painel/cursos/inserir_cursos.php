@@ -63,7 +63,7 @@
                                         &nbsp&nbsp&nbsp&nbsp
                                         <label><input type="radio" name="category"  class="category" value="Manicure"> <i></i> Manicure</label>
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category" value="Micropigmentação"> <i></i> Micropigmentação</label>
+                                        <label><input type="radio" name="category"  class="category" value="Maquiagem"> <i></i> Maquiagem</label>
                                     </div>
 
                                         <!--<input type="text"  class="form-control input-sm" placeholder=""  >-->
@@ -75,12 +75,31 @@
                                 <div class="form-group">
                                     <label>Data do Curso</label>
                                     <div class="nk-int-st">
-                                    <input type="text" class="form-control input-sm" value="" name="data_curso" id="data-curso">  
+                                        <!--<input type="text" class="form-control input-sm" name="course_date" id="course_date" value="11/04/2019">  -->
+                                        <input type="text" class="form-control input-sm" value="" name="data" id="data">
                                     </div>
                                 </div>
                             </div>
 
-                            <input type="hidden" class="form-control input-sm" value="" name="data" id="data" readonly>
+                            <div class="form-example-int mg-t-15" style="">
+                                <div class="form-group">
+                                    <label>URL</label>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm" name="url" id="url">  
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-example-int mg-t-15" style="">
+                                <div class="form-group">
+                                    <label>Local</label>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm" name="address" id="address">  
+                                    </div>
+                                </div>
+                            </div>
+
+                            
                             
                         
                             <div class="form-example-int mg-t-15">
