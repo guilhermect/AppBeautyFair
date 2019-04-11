@@ -23,10 +23,10 @@
                                 <li><a data-toggle="collapse" data-target="#demoevent" href="#">Cursos</a>
                                         <ul id="demoevent" class="collapse dropdown-header-top">
                                         <li>
-                                            <a href="<?php echo base_url('index.html'); ?>">Ver cursos</a>
+                                            <a href="<?php echo base_url('painel/ver_cursos'); ?>">Ver cursos</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('index.html'); ?>">Inserir cursos</a>
+                                            <a href="<?php echo base_url('painel/inserir_cursos'); ?>">Inserir cursos</a>
                                         </li>
                                         </ul>
                                     </li>
@@ -38,6 +38,16 @@
                                     <li>
                                         <a href="<?php echo base_url('index.html'); ?>">Inserir academias</a>
                                     </li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#demolibra" href="#">Expositores</a>
+                                    <ul id="demolibra" class="collapse dropdown-header-top">
+                                        <li>
+                                            <a href="<?php echo base_url('index.html'); ?>">Ver expositores</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('index.html'); ?>">Inserir expositores</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a data-toggle="collapse" data-target="#demolibra" href="#">Palestrantes</a>
@@ -91,8 +101,12 @@
                             <i class="fa fa-graduation-cap"></i> Academias</a>
                         </li>
                         <li>
+                            <a data-toggle="tab" href="#expositores">
+                            <i class="fa fa-video-camera"></i> Expositores</a>
+                        </li>
+                        <li>
                             <a data-toggle="tab" href="#palestrantes">
-                            <i class="fa fa-video-camera"></i> Palestrantes</a>
+                            <i class="fa fa-user"></i> Palestrantes</a>
                         </li>
                         <li>
                             <a data-toggle="tab" href="#caravanistas">
@@ -130,6 +144,17 @@
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('index.html'); ?>">Inserir academias</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div id="expositores" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li>
+                                    <a href="<?php echo base_url('index.html'); ?>">Ver expositores</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('index.html'); ?>">Inserir expositores</a>
                                 </li>
                             </ul>
                         </div>
