@@ -2,10 +2,6 @@
 const form = document.querySelector('#add-user-form');
 
 
-
-
-
-
 //Upload File
 
 var uploader = document.getElementById('uploader');
@@ -23,7 +19,7 @@ fileButton.addEventListener('change', function(e){
     //Upload file
     var task = storageRef.put(file);
 
-
+    var img='';
 
     //update progress bar
     task.on('state_changed', 
@@ -41,31 +37,35 @@ fileButton.addEventListener('change', function(e){
         function complete(){
            
 
-            //saving data
-            if(form){
+            
                 task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
                 
-                    form.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        db.collection('news').doc('hair').collection('items').add({
-                            title: form.title.value,
-                            content: form.content.value,
-                            image: downloadURL,
-                            date: form.data.value
-                        })
-                        swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
-                        form.title.value = '';
-                        form.content.value = '';
-                        fileButton.value='';
-                        uploader.value='';
-                        
-                    })
+                    img = downloadURL;
 
                 });
-            }
+            
         }
 
     );
+
+    //saving data
+    if(form){
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            db.collection('news').doc('hair').collection('items').add({
+                title: form.title.value,
+                content: form.content.value,
+                image: img,
+                date: form.data.value
+            })
+            swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
+            form.title.value = '';
+            form.content.value = '';
+            fileButton.value='';
+            uploader.value='';
+            
+        })
+    }
 });
 
 

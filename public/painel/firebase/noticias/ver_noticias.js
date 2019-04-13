@@ -7,6 +7,7 @@ var img_atual = document.getElementById('img-atual');
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
 
+
 // Create element and render user
 function renderUser(doc){
     let tr = document.createElement('tr');
@@ -60,26 +61,67 @@ function renderUser(doc){
 
 
 
+    var img='';
+
+     //Listen for file selection
+     fileButton.addEventListener('change', function(e){
+
+        //Get file
+        var file = e.target.files[0];
+
+        //Create storage ref
+        var storageRef = firebase.storage().ref('news/' + file.name);
+
+
+        //Upload file
+        var task = storageRef.put(file);
+        
+
+
+        //update progress bar
+        task.on('state_changed', 
+
+            function progress(snapshot){
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+
+            },
+
+            function error(err){ 
+
+            },
+
+            function complete(){
+                task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                
+                    img = downloadURL;
+
+                });
+            }
+
+        );
+
+        
+
+     });
+
+
    //updating data
     upd_btn.addEventListener('click', (e) => {
+        
 
         document.getElementById("myModalsix").setAttribute("style","display:block;");
         
+        if(document.getElementById("fileButton").value == "") {
+            img = e.target.parentElement.getAttribute('image');
+        }
 
+         
         var id = e.target.parentElement.getAttribute('data-id');
         var title = e.target.parentElement.getAttribute('title');
         var content = e.target.parentElement.getAttribute('content');
         
         var date= document.getElementById('data').value;
-
-        var img='';
-        
-        
-        if(document.getElementById("fileButton").value != "") {
-            img='sdds';
-         } else {
-            img = e.target.parentElement.getAttribute('image');
-         }
 
 
 
@@ -92,6 +134,7 @@ function renderUser(doc){
 
 
         if(formUpd){
+            
 
             formUpd.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -152,35 +195,3 @@ db.collection('news').doc('hair').collection('items').onSnapshot(snapshot => {
 })*/
 
 
-fileButton.addEventListener('change', function(e){
-    //Get file
-    var file = e.target.files[0];
-
-    //Create storage ref
-    var storageRef = firebase.storage().ref('news/' + file.name);
-
-
-    //Upload file
-    var task = storageRef.put(file);
-
-
-    //update progress bar
-    task.on('state_changed', 
-
-        function progress(snapshot){
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            uploader.value = percentage;
-
-        },
-
-        function error(err){
-            
-
-        },
-
-        function complete(){
-
-        }
-
-    );
-});

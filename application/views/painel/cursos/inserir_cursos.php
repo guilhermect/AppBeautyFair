@@ -39,7 +39,7 @@
                             </div>
 
                             
-
+                            
                             <div class="form-example-int mg-t-15">
                                 <div class="form-group">
                                     <label>Imagem</label>
@@ -50,37 +50,34 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
+                            
                             <div class="form-example-int">
                                 <div class="form-group">
                                     <label>Categoria</label>
                                     <div class="nk-int-st">
 
                                     <div class="fm-checkbox">
-                                        <label><input type="radio" name="category"  class="category " value="Hair"> <i></i> Hair</label> 
+                                        <label><input type="radio" name="category"  class="category" value="Hair"> <i></i> Hair</label> 
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category " value="Estética"> <i></i> Estética</label>
+                                        <label><input type="radio" name="category"  class="category" value="Estética"> <i></i> Estética</label>
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category " value="Manicure"> <i></i> Manicure</label>
+                                        <label><input type="radio" name="category"  class="category" value="Manicure"> <i></i> Manicure</label>
                                         &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="radio" name="category"  class="category " value="Maquiagem"> <i></i> Maquiagem</label>
+                                        <label><input type="radio" name="category"  class="category" value="Maquiagem"> <i></i> Maquiagem</label>
                                     </div>
 
-                                        <!--<input type="text"  class="form-control input-sm" placeholder=""  >-->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-example-int mg-t-15" style="">
-                                <div class="form-group">
-                                    <label>Data do Curso</label>
-                                    <div class="nk-int-st">
-                                        <!--<input type="text" class="form-control input-sm" name="course_date" id="course_date" value="11/04/2019">  -->
-                                        <input type="text" class="form-control input-sm" value="" name="data" id="data">
+                                        
                                     </div>
                                 </div>
                             </div>
 
+                            
+                            
+                            
+                            
+                            
+                            
                             <div class="form-example-int mg-t-15" style="">
                                 <div class="form-group">
                                     <label>URL</label>
@@ -89,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="form-example-int mg-t-15" style="">
                                 <div class="form-group">
                                     <label>Local</label>
@@ -99,13 +96,20 @@
                                 </div>
                             </div>
 
+                            <div class="form-example-int mg-t-15" style="">
+                                <div class="form-group">
+                                    <label>Data do Curso</label>
+                                    <div class="nk-int-st">
+                                       
+                                        <input type="text" class="form-control input-sm" value="" name="data" id="data">
+                                    </div>
+                                </div>
+                            </div>
                             
                             
                         
                             <div class="form-example-int mg-t-15">
-                                <button class="btn btn-success">Inserir Notícia</button>
-                                <!--<button type="submit" class="btn btn-warning" value="Update" onclick="update_user();">Update</button>
-                                -->
+                                <button class="btn btn-success">Inserir Curso</button>
                             </div>
                         </form>
                     </div>

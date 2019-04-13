@@ -70,6 +70,49 @@ function renderCourse(doc){
         db.collection('courses').doc(id).delete();
     });
 
+    var img='';
+
+    //Listen for file selection
+    fileButton.addEventListener('change', function(e){
+        //Get file
+        var file = e.target.files[0];
+    
+        //Create storage ref
+        var storageRef = firebase.storage().ref('courses/' + file.name);
+    
+    
+        //Upload file
+        var task = storageRef.put(file);
+    
+    
+    
+        //update progress bar
+        task.on('state_changed', 
+    
+            function progress(snapshot){
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+    
+            },
+    
+            function error(err){
+                
+      
+    
+            },
+    
+            function complete(){
+    
+                task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                
+                    img = downloadURL;
+
+                });           
+            },
+    
+        );
+    });
+
 
 
    //updating data
@@ -77,6 +120,9 @@ function renderCourse(doc){
 
         document.getElementById("myModalsix").setAttribute("style","display:block;");
         
+        if(document.getElementById("fileButton").value == "") {
+            img = e.target.parentElement.getAttribute('image');
+        }
 
         var id = e.target.parentElement.getAttribute('data-id');
         var title = e.target.parentElement.getAttribute('title');
@@ -87,16 +133,8 @@ function renderCourse(doc){
         var address = e.target.parentElement.getAttribute('address');
         
         //var date= document.getElementById('data').value;
-
-        var img='';
         
         
-        if(document.getElementById("fileButton").value != "") {
-            img='sdds';
-        } else {
-            img = e.target.parentElement.getAttribute('image');
-        }
-
         
         if(category=='Maquiagem'){
             document.querySelector('#maquiagemRadio').setAttribute("checked","");
@@ -194,38 +232,3 @@ db.collection('courses').onSnapshot(snapshot => {
 })*/
 
 
-fileButton.addEventListener('change', function(e){
-    //Get file
-    var file = e.target.files[0];
-
-    //Create storage ref
-    var storageRef = firebase.storage().ref('courses/' + file.name);
-
-
-    //Upload file
-    var task = storageRef.put(file);
-
-
-
-    //update progress bar
-    task.on('state_changed', 
-
-        function progress(snapshot){
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            uploader.value = percentage;
-
-        },
-
-        function error(err){
-            
-  
-
-        },
-
-        function complete(){
-
-                       
-        },
-
-    );
-});
