@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "beauty-fair-214318",
+  "private_key_id": "48e4f8e31acc9c3bca4e97a71003cb5fed4218f6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCpW+/CxGYNM9I5\npx6IOAd0taIIL1zmGkZ+G/v2SqlSyaqz9K6/pRNQSto1aOW/4gmtUrySxBBwTaRW\nqAL87yQfprtGGoxVtvwTvOnNhEK4BpA0J4aTSUUfgvKfQ5B7ZBCCYvNW7BHqXhWI\n4cKD2oxUuULWANimPqZgZO9iDwZUwIvG4ouOy0wwvmuqte5WM2DHOvwjE4idyzEY\n3wzxanuSn9CSfoPJhcWUF+IdQyOrWyEqCSivk5ShnndFalGn3M4g0kb/Sf0IyaLO\nJ08Tk+w6rfmx2nTE32bIldLJ/9AyZxbJDqkohrtaunP2qKZNmk/sGySftsmOwNDy\nUbpANWEbAgMBAAECggEAB57MOCUdJb1DWXZpux2w8YaWBAHu5KhMVrKh+4WFfo+g\nv4MkH8Ro4jp+p1uRHDlVT81YEHnY9tdPgdoCdGi65TUGhSjUUAEGm57ASGU0mVIr\nnTp6utgs+jYqqObh3TjLPgqqF1WnmAuOstTcVebOB1E6BCYP7tRafnOG3+XRgPEB\nkXCcofq3ixMaTJ/GfqBstX9b7io1jgg5lVIxEtJKtCg+EIHZZD6vI74DEqEuTLSj\n/ZEunermLqPqZmwnSCxnnsvlM1a0dCLtKZVrBedr51Jhubmc79OZrj14Rjj8zTGx\ndjcinTe3sSOJDLHkCbLgKRW1NsQtDt+t/NUj0Qd1fQKBgQDQyd5AJw648cCMAh6M\nBCajZEqHdFyW7u23gAZ0NQ+p7NJK6PiONCD5wc2J3ZfElIGZR1/D4QMHq128NYBX\n5rRe/9FVdEIXRkonEwYwQi6Hu80zAWZepAvthTOQBZ/CegDj1/tgeTzRxypTIrRa\nj06VIJ3IFfS8egmoaJZA7dd9bQKBgQDPp56dVdKUn845Rjl/ty48PjJTL0YnU9/P\nFyL2QyF2LdhTYA6kazXEekMnvIAZzpx4FOl5uGz6J/IEDs9G6xKpZIANz0ZdHSRn\namZcGFtaco36/EVD4msFd5qWXeIOMk0NhLGw3B0jgh9iR7nV20yYdqA/zg+tlMnz\nflzzEE5rpwKBgB01IDI5RIX6y8TKRxuvOPiCfyqTzKAQrJCPCFgZVCehSYnRLXQ3\nNqW5xtcSeLi3TanzoiH0yEe6YVKC6YFidLkVcGNT8CrxWk49CxCVMY0raHlKKNf0\nevavO5daMg8yog09mZzVWPy/r9wRbsl8YrHZ7jifWa1EJTW568sJeqvBAoGAIqg9\nJtE+FiQdzR1VV2WBR/ixeYS4VrP+9JdN9H/7w7efFTtA9lwWWzZ0otspHiWHo9sJ\npJENTyr/j4HRQmrVcIQfgy6G9d95RfFSKCjAhnX8EFmuTcgqSH1Pxazhn7Dxf0IY\nTgZOrrB3AHYsI+8393JFCKEhqLzef88lQEQGcp0CgYAwMtWJjNa715dLW4F9z5ci\niV0iLKbKxcjbCjIywCCP+MMVZvD2ychxFaJq/y8ExWv7ioBYfz1bpVnImsDLsmpe\n14A2yF9mDrRyvaDN3jTXxp7mE9UypNADtSaV5gG8g8IaB7iTkfZOKbEEY0ryX59x\nhtFPdpM+pSUtHr/i+o3ewA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "data-transfer@beauty-fair-214318.iam.gserviceaccount.com",
+  "client_id": "102333558692619912255",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/data-transfer%40beauty-fair-214318.iam.gserviceaccount.com"
+}

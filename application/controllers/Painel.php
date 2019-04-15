@@ -63,4 +63,28 @@ class Painel extends CI_Controller {
 		$this->load->view('painel/frontend/footer');
 		$this->load->view('painel/frontend/html-footer');
 	}
+
+	//Cursos
+
+	public function ver_caravanistas()
+	{
+		$this->load->view('painel/frontend/html-header');
+		$this->load->view('painel/frontend/header');
+		$this->load->view('painel/frontend/menu');
+		$this->load->view('painel/caravanistas/ver_caravanistas');
+		$this->load->view('painel/frontend/footer');
+		$this->load->view('painel/frontend/html-footer');
+	}
+
+	public function inserir_caravanistas()
+	{
+		$this->load->view('painel/frontend/html-header');
+		$this->load->view('painel/frontend/header');
+		$this->load->view('painel/frontend/menu');
+		$this->load->view('painel/caravanistas/inserir_caravanistas');
+		$this->load->view('painel/frontend/footer');
+		$this->load->view('painel/frontend/html-footer');
+	}
+
+	
 }

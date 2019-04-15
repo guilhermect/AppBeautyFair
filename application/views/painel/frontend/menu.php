@@ -63,10 +63,10 @@
                                 <li><a data-toggle="collapse" data-target="#demodepart" href="#">Caravanistas</a>
                                     <ul id="demodepart" class="collapse dropdown-header-top">
                                         <li>
-                                            <a href="<?php echo base_url('index.html'); ?>">Ver caravanistas</a>
+                                            <a href="<?php echo base_url('painel/ver_caravanistas'); ?>">Ver caravanistas</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('index.html'); ?>">Inserir caravanistas</a>
+                                            <a href="<?php echo base_url('painel/inserir_caravanistas'); ?>">Inserir caravanistas</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -173,10 +173,10 @@
                         <div id="caravanistas" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="<?php echo base_url('index.html'); ?>">Ver caravanistas</a>
+                                    <a href="<?php echo base_url('painel/ver_caravanistas'); ?>">Ver caravanistas</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('index.html'); ?>">Inserir caravanistas</a>
+                                    <a href="<?php echo base_url('painel/inserir_caravanistas'); ?>">Inserir caravanistas</a>
                                 </li>
                             </ul>
                         </div>
@@ -194,32 +194,16 @@
         var pageURL = $(location).attr("href");
 
         if(pageURL==base_path+'painel/inserir_noticias' || pageURL==base_path+'painel/ver_noticias'){
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(1)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(2)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(3)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(4)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(5)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
-
-
+            $(".tab-content.custom-menu-content .tab-pane:nth-child(1)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");  
             $(".main-menu-area ul li:nth-child(1)").attr("class","active");
-            $(".main-menu-area ul li:nth-child(2)").attr("class","");
-            $(".main-menu-area ul li:nth-child(3)").attr("class","");
-            $(".main-menu-area ul li:nth-child(4)").attr("class","");
-            $(".main-menu-area ul li:nth-child(5)").attr("class","");
         }
-
         else if(pageURL==base_path+'painel/inserir_cursos' || pageURL==base_path+'painel/ver_cursos'){
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(1)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
             $(".tab-content.custom-menu-content .tab-pane:nth-child(2)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(3)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(4)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
-            $(".tab-content.custom-menu-content .tab-pane:nth-child(5)").attr("class","tab-pane notika-tab-menu-bg animated flipInX");
-
-            $(".main-menu-area ul li:nth-child(1)").attr("class","");
             $(".main-menu-area ul li:nth-child(2)").attr("class","active");
-            $(".main-menu-area ul li:nth-child(3)").attr("class","");
-            $(".main-menu-area ul li:nth-child(4)").attr("class","");
-            $(".main-menu-area ul li:nth-child(5)").attr("class","");
+        }
+        else if(pageURL==base_path+'painel/inserir_caravanistas' || pageURL==base_path+'painel/ver_caravanistas'){
+            $(".tab-content.custom-menu-content .tab-pane:nth-child(6)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");
+            $(".main-menu-area ul li:nth-child(6)").attr("class","active");
         }
 
 

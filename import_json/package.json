@@ -1,0 +1,14 @@
+{
+  "name": "import-json",
+  "version": "1.0.0",
+  "description": "Import Json file to Firestore",
+  "main": "import.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^7.2.0"
+  }
+}
