@@ -172,7 +172,7 @@
                                     <a href="<?php echo base_url('painel/ver_caravanistas'); ?>">Ver caravanistas</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('painel/inserir_caravanistas'); ?>">Inserir caravanistas</a>
+                                    <a href="<?php echo base_url('painel/inserir_caravanistas'); ?>">Importar caravanistas</a>
                                 </li>
                             </ul>
                         </div>

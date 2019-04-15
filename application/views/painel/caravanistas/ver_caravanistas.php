@@ -42,11 +42,11 @@
                                             <th style="color:#fff;">Email</th>
                                             <th style="color:#fff;">Telefone 1</th>
                                             <th style="color:#fff;">Telefone 2</th>
-                                            <th style="color:#fff;">Ações</th>
+                                           
                                         </tr>
                                         
                                     </thead>
-                                    <tbody id="user-list" >
+                                    <tbody id="caravan-list" >
                                     
                                     </tbody>
                                     
@@ -75,7 +75,7 @@
                                     <h2>Atualizar Caravanista</h2>
                                 </div>
 
-                                <form id="update-user-form">
+                                <form id="update-caravan-form">
                                     <div class="form-example-int">
                                         <div class="form-group">
                                             <label>Título</label>

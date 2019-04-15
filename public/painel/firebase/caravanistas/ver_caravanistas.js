@@ -1,206 +1,52 @@
-const caravanList = document.querySelector('#user-list');  
-const formUpd = document.querySelector('#update-user-form');
-var img_atual = document.getElementById('img-atual');
-
-//Upload File
-
-var uploader = document.getElementById('uploader');
-var fileButton = document.getElementById('fileButton');
+const caravanList = document.querySelector('#caravan-list');  
+const formUpd = document.querySelector('#update-caravan-form');
 
 // Create element and render user
 function renderCourse(doc){
     let tr = document.createElement('tr');
     let title = document.createElement('td'); 
-    let content = document.createElement('td'); 
-    let image = document.createElement('td'); 
-    let category = document.createElement('td'); 
-    let caravan_date = document.createElement('td'); 
-    let url = document.createElement('td'); 
     let address = document.createElement('td'); 
-    let del_btn = document.createElement('button');
-    let upd_btn = document.createElement('button');
+    let city = document.createElement('td'); 
+    let state = document.createElement('td'); 
+    let email = document.createElement('td'); 
+    let phone1 = document.createElement('td'); 
+    let phone2 = document.createElement('td'); 
+
 
 
     tr.setAttribute('data-id',doc.id);
     tr.setAttribute('title',doc.data().title);
-    tr.setAttribute('content',doc.data().content);
-    tr.setAttribute('image',doc.data().image);
-    tr.setAttribute('category',doc.data().category);
-    tr.setAttribute('caravan_date',doc.data().caravan_date);
-    tr.setAttribute('url',doc.data().url);
     tr.setAttribute('address',doc.data().address);
+    tr.setAttribute('city',doc.data().city);
+    tr.setAttribute('state',doc.data().state);
+    tr.setAttribute('email',doc.data().email);
+    tr.setAttribute('phone1',doc.data().phone1);
+    tr.setAttribute('phone2',doc.data().phone2);
 
     title.textContent= doc.data().title;
-    content.textContent= doc.data().content;
-    var img_url = doc.data().image;
-    image.innerHTML= '<img src="'+img_url+'" width="150">';
-    category.textContent= doc.data().category;
-    caravan_date.textContent= doc.data().caravan_date;
-    url.textContent= doc.data().url;
     address.textContent= doc.data().address;
-    del_btn.textContent = 'x'; 
-    upd_btn.textContent = '↺';
+    city.textContent= doc.data().city;
+    state.textContent= doc.data().state;
+    email.textContent= doc.data().email;
+    phone1.textContent= doc.data().phone1;
+    phone2.textContent= doc.data().phone2;
+
      
-
-    /*var dataSet = [
-        [content.innerHTML, date.innerHTML, del_btn.innerHTML + ' ' + upd_btn.innerHTML]
-    ];
-
-    $('#table').DataTable( {
-        data: dataSet
-    } );*/
-
     tr.appendChild(title);
-    tr.appendChild(content);
-    tr.appendChild(image);
-    tr.appendChild(category);
-    tr.appendChild(caravan_date);
-    tr.appendChild(url);
     tr.appendChild(address);
-    tr.appendChild(upd_btn);
-    tr.appendChild(del_btn);
+    tr.appendChild(city);
+    tr.appendChild(state);
+    tr.appendChild(email);
+    tr.appendChild(phone1);
+    tr.appendChild(phone2);
+  
 
     caravanList.appendChild(tr);
 
-    // deleting data
-    del_btn.addEventListener('click', (e) => {
-        
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute('data-id');
-        db.collection('caravans').doc(id).delete();
-    });
-
-    var img='';
-
-    //Listen for file selection
-    fileButton.addEventListener('change', function(e){
-        //Get file
-        var file = e.target.files[0];
-    
-        //Create storage ref
-        var storageRef = firebase.storage().ref('caravans/' + file.name);
-    
-    
-        //Upload file
-        var task = storageRef.put(file);
-    
-    
-    
-        //update progress bar
-        task.on('state_changed', 
-    
-            function progress(snapshot){
-                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                uploader.value = percentage;
-    
-            },
-    
-            function error(err){
-                
-      
-    
-            },
-    
-            function complete(){
-    
-                task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-                
-                    img = downloadURL;
-
-                });           
-            },
-    
-        );
-    });
+   
 
 
-
-   //updating data
-    upd_btn.addEventListener('click', (e) => {
-
-        document.getElementById("myModalsix").setAttribute("style","display:block;");
-        
-        if(document.getElementById("fileButton").value == "") {
-            img = e.target.parentElement.getAttribute('image');
-        }
-
-        var id = e.target.parentElement.getAttribute('data-id');
-        var title = e.target.parentElement.getAttribute('title');
-        var content = e.target.parentElement.getAttribute('content');
-        var category = e.target.parentElement.getAttribute('category');
-        var caravan_date = e.target.parentElement.getAttribute('caravan_date');
-        var url = e.target.parentElement.getAttribute('url');
-        var address = e.target.parentElement.getAttribute('address');
-        
-        //var date= document.getElementById('data').value;
-        
-        
-        
-        if(category=='Maquiagem'){
-            document.querySelector('#maquiagemRadio').setAttribute("checked","");
-        } else 
-        
-        if(category=='Hair'){
-            document.querySelector('#hairRadio').setAttribute("checked","");
-        } else 
-
-        if(category=='Manicure'){
-            document.querySelector('#manicureRadio').setAttribute("checked","");
-        } else
-
-        if(category=='Estética'){
-            document.querySelector('#esteticaRadio').setAttribute("checked","");
-        }
-
-
-
-        formUpd.title.value=title;
-        formUpd.content.value=content;        
-
-        formUpd.caravan_date.value=caravan_date;
-        formUpd.url.value=url;
-        formUpd.address.value=address;
-        //formUpd.data.value=date;
-        img_atual.setAttribute('src',img);
-        fileButton.setAttribute('value',img);
-        
-
-
-
-        if(formUpd){
-
-            formUpd.addEventListener('submit', (e) => {
-                e.preventDefault();
-                db.collection('caravans').doc(id).update({
-                    title:formUpd.title.value,
-                    content: formUpd.content.value,
-                    image: img,
-                    category: formUpd.category.value,
-                    caravan_date: formUpd.caravan_date.value,
-                    url: formUpd.url.value,
-                    address: formUpd.address.value,
-                    //date: date,
-                })
-                //alert('Atualizado com sucesso');
-                
-                
-                document.getElementById("myModalsix").setAttribute("style","display:none;");
-
-                setTimeout(function(){
-                    window.location.reload(1);
-                 }, 500);
-            });
-        
-        }
-
-        
-
-    });
-
- 
-    //document.querySelector("table").setAttribute("id","data-table-basic");
 }
-
 
 
 //real-time listener
@@ -222,13 +68,4 @@ db.collection('caravans').onSnapshot(snapshot => {
     })
 
 })
-
-
-//getting data
-/*db.collection('users').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderCourse(doc);
-    })
-})*/
-
 

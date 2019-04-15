@@ -13,7 +13,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap">
                         <div class="cmp-tb-hd">
-                            <h2>Inserir Caravanista</h2>
+                            <h2>Importar Caravanistas</h2>
                             
 
                         </div>
@@ -36,7 +36,7 @@
                             
                         
                             <div class="form-example-int mg-t-15">
-                                <button class="btn btn-success">Inserir Caravanista</button>
+                                <button class="btn btn-success">Importar Caravanista</button>
                             </div>
                         </form>
                     </div>
@@ -44,22 +44,6 @@
             </div>
 </div>
 
-<script>
-    var d = new Date();
 
-    var month = d.getMonth()+1;
-    var day = d.getDate();
-
-
-    var output = (day<10 ? '0' : '') + day 
-                + '/' + (month<10 ? '0' : '') + month + '/' + d.getFullYear();
-
-
-    $(function(){
-       // $("#data").attr('value',output);
-    })
-</script>
-
-
-<script src="<?php echo base_url('public/painel/firebase/cursos/inserir_cursos.js') ?>"></script>
+<script src="<?php echo base_url('public/painel/firebase/caravanistas/inserir_caravanistas.js') ?>"></script>
 
