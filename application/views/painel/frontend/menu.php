@@ -43,11 +43,9 @@
                                 <li><a data-toggle="collapse" data-target="#demolibra" href="#">Expositores</a>
                                     <ul id="demolibra" class="collapse dropdown-header-top">
                                         <li>
-                                            <a href="<?php echo base_url('index.html'); ?>">Ver expositores</a>
+                                            <a href="<?php echo base_url('painel/ver_expositores'); ?>">Ver expositores</a>
                                         </li>
-                                        <li>
-                                            <a href="<?php echo base_url('index.html'); ?>">Inserir expositores</a>
-                                        </li>
+                                        
                                     </ul>
                                 </li>
                                 <li><a data-toggle="collapse" data-target="#demolibra" href="#">Palestrantes</a>
@@ -151,11 +149,9 @@
                         <div id="expositores" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="<?php echo base_url('index.html'); ?>">Ver expositores</a>
+                                    <a href="<?php echo base_url('painel/ver_expositores'); ?>">Ver expositores</a>
                                 </li>
-                                <li>
-                                    <a href="<?php echo base_url('index.html'); ?>">Inserir expositores</a>
-                                </li>
+                                
                             </ul>
                         </div>
 
@@ -203,6 +199,10 @@
         }
         else if(pageURL==base_path+'painel/inserir_caravanistas' || pageURL==base_path+'painel/ver_caravanistas'){
             $(".tab-content.custom-menu-content .tab-pane:nth-child(6)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");
+            $(".main-menu-area ul li:nth-child(6)").attr("class","active");
+        }
+        else if(pageURL==base_path+'painel/ver_expositores'){
+            $(".tab-content.custom-menu-content .tab-pane:nth-child(4)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");
             $(".main-menu-area ul li:nth-child(6)").attr("class","active");
         }
 

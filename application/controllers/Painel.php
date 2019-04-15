@@ -8,6 +8,7 @@ class Painel extends CI_Controller {
         parent::__construct();
 		
 		$this->load->helper('url');
+		$this->load->model('painel_model');
 	}
 		
 	public function index()
@@ -82,6 +83,30 @@ class Painel extends CI_Controller {
 		$this->load->view('painel/frontend/header');
 		$this->load->view('painel/frontend/menu');
 		$this->load->view('painel/caravanistas/inserir_caravanistas');
+		$this->load->view('painel/frontend/footer');
+		$this->load->view('painel/frontend/html-footer');
+	}
+
+	//Cursos
+
+	public function ver_expositores()
+	{
+		$sheet=$this->painel_model->get_data('expositores');
+
+		$this->load->view('painel/frontend/html-header');
+		$this->load->view('painel/frontend/header');
+		$this->load->view('painel/frontend/menu');
+		$this->load->view('painel/expositores/ver_expositores',$sheet);
+		$this->load->view('painel/frontend/footer');
+		$this->load->view('painel/frontend/html-footer');
+	}
+
+	public function inserir_expositores()
+	{
+		$this->load->view('painel/frontend/html-header');
+		$this->load->view('painel/frontend/header');
+		$this->load->view('painel/frontend/menu');
+		$this->load->view('painel/expositores/inserir_expositores');
 		$this->load->view('painel/frontend/footer');
 		$this->load->view('painel/frontend/html-footer');
 	}
