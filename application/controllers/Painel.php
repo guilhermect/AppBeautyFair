@@ -111,5 +111,15 @@ class Painel extends CI_Controller {
 		$this->load->view('painel/frontend/html-footer');
 	}
 
+	public function import_caravans(){
+		
+		$import=exec('/usr/bin/nodejs /opt/lampp/htdocs/appbeautyfair/import_json/import.js >/dev/null/ 2>&1 &');
+		if($import){
+			echo $import;
+		} else {
+			echo 'não foi';
+		}
+	}
+
 	
 }

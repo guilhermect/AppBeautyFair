@@ -17,9 +17,20 @@
                             
 
                         </div>
+                        <?php 
+                        if(isset($_POST['import'])){
+                            if($exec = exec('/usr/bin/node -v 2>&1')){
+                                echo $exec;
+                            } else {
+                                
+                            }
 
-                        <form id="add-form">
-                          
+
+                        }
+                        ?>
+
+                        <form id="add-form" method="post" action="">
+                          <!--
                             <div class="form-example-int mg-t-15">
                                 <div class="form-group">
                                     <label>Arquivo</label>
@@ -30,13 +41,13 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            -->
                             
                             
                             
                         
                             <div class="form-example-int mg-t-15">
-                                <button class="btn btn-success">Importar Caravanista</button>
+                                <button class="btn btn-success" name="import" type="submit">Importar Caravanista</button>
                             </div>
                         </form>
                     </div>

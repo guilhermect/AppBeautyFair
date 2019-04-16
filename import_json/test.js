@@ -1,7 +1,7 @@
 
 const http = require('http');
 
-const hostname = '127.0.0.1';
+const hostname = 'dkmahomologar.ga';
 const port = 3000;
 
 const admin = require('./node_modules/firebase-admin');
