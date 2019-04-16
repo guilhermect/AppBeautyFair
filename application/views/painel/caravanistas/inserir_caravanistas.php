@@ -1,11 +1,12 @@
-<style>
-    #uploader {
-        -webkit-appearance: none;
-        width: 100%;
-        border: 1px solid black;
-    }
-</style>
 
+
+<script>
+$.getJSON(base_path+"import_json/caravanas.json", function( json ) {
+    for(i=0;i<json.caravans.length;i++){
+        console.log(json.caravans[i].title)
+    }
+});
+</script>
 
 <div class="container">
         
@@ -17,37 +18,23 @@
                             
 
                         </div>
-                        <?php 
-                        if(isset($_POST['import'])){
-                            if($exec = exec('/usr/bin/node -v 2>&1')){
-                                echo $exec;
-                            } else {
-                                
-                            }
+                      
 
-
-                        }
-                        ?>
-
-                        <form id="add-form" method="post" action="">
-                          <!--
+                        <form id="add-form" action="<?php //echo base_url('painel/upload_file') ?>">
+                          
                             <div class="form-example-int mg-t-15">
                                 <div class="form-group">
                                     <label>Arquivo</label>
                                     <div class="nk-int-st mg-t-15">
-                                        <progress value="0" max="100" id="uploader">0%</progress>
-                                        <input type="file" name="file" class="form-control input-sm" value="upload" id="fileButton" required>
+                                        <input type="file" name="caravanas" class="form-control input-sm" value="upload" id="fileButton">
                                        
                                     </div>
                                 </div>
                             </div>
-                            -->
-                            
-                            
-                            
+
                         
                             <div class="form-example-int mg-t-15">
-                                <button class="btn btn-success" name="import" type="submit">Importar Caravanista</button>
+                                <button class="btn btn-success"   id="enviar">Enviar</button>
                             </div>
                         </form>
                     </div>
@@ -56,5 +43,5 @@
 </div>
 
 
-<script src="<?php echo base_url('public/painel/firebase/caravanistas/inserir_caravanistas.js') ?>"></script>
+<!--<script src="<?php echo base_url('public/painel/firebase/caravanistas/inserir_caravanistas.js') ?>"></script>-->
 

@@ -46,7 +46,7 @@ fileButton.addEventListener('change', function(e){
                             json: downloadURL,
                         });
                         
-                        swal( "Importado com sucesso!" ,  "Veja na página 'Ver cursos'" ,  "success" );
+                        swal( "Importado com sucesso!" ,  "" ,  "success" );
                         
                         fileButton.value='';
                         uploader.value='';

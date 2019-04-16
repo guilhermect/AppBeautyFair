@@ -7,7 +7,7 @@ const port = 3000;
 const admin = require('./node_modules/firebase-admin');
 const serviceAccount = require("./service-key.json");
 
-const data = require("./teste.json");
+const data = require("./caravanas.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -22,9 +22,9 @@ data && Object.keys(data).forEach(key => {
             admin.firestore()
                 .collection(key)
                 .doc(docTitle)
-                .set(nestedContent[docTitle])
+                .set(nestedContent[docTitle],{ merge: true })
                 .then((res) => {
-                    console.log("Document successfully written!");
+                    console.log("Documento importado com sucesso!");
                 })
                 .catch((error) => {
                     console.error("Error writing document: ", error);

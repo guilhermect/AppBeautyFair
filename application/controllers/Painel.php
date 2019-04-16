@@ -111,14 +111,26 @@ class Painel extends CI_Controller {
 		$this->load->view('painel/frontend/html-footer');
 	}
 
-	public function import_caravans(){
-		
-		$import=exec('/usr/bin/nodejs /opt/lampp/htdocs/appbeautyfair/import_json/import.js >/dev/null/ 2>&1 &');
-		if($import){
-			echo $import;
-		} else {
-			echo 'não foi';
-		}
+
+	public function upload_file(){
+		if($_FILES['caravanas']['name'] != ""){
+
+            $path='./import_json/';
+            
+            $config = array(
+                 'upload_path'   => $path,
+                 'allowed_types'=>'pdf',
+                 'max_size'      => '2048000'
+             );  
+    
+            $this->load->library('upload');
+            
+            $this->upload->initialize($config);
+            
+			$upload =  $this->upload->do_upload('caravanas');
+			
+			return $upload;
+        } 
 	}
 
 	
