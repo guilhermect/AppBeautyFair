@@ -43,11 +43,7 @@ function renderCourse(doc){
 
     caravanList.appendChild(tr);
 
-   
-
-
 }
-
 
 //real-time listener
 db.collection('caravans').onSnapshot(snapshot => {
