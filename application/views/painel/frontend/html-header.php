@@ -113,9 +113,21 @@
             margin:10px;
           }
          }
+
          th {
             text-align: center;
-        }
+          }
+        
+          .footer-copyright-area {
+            position: absolute !important;
+            bottom: 0 !important;
+            width: 100% !important;
+          }
+
+          .mean-container .mean-nav {
+              margin-bottom: 10px !important;
+          }
+        
         </style> 
 </head>
 
