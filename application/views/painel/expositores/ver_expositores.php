@@ -13,7 +13,7 @@
                         <div class="basic-tb-hd">
                             <h3>Expositores</h3>
                             <div class="table-responsive">
-                                <table  class="table table-striped table-dark text-center">
+                                <table  id="myTable" class="table table-striped table-dark text-center">
                                     <thead style="background:#2E2E2E; ">
                                         <tr>
                                             <th style="color:#fff;">Titulo</th>
@@ -31,30 +31,34 @@
                                             if(is_array($data)){
                                                 foreach($data as $val){
                                         ?>
+
+                                        <tr>
                                         
-                                         <td><?php echo $val['title'] ?></td>
-                                         <td><?php echo $val['category'] ?></td>
-                                         <td><?php echo $val['spotlight'] ?></td>
-                                         <td><?php echo $val['news'] ?></td>
-                                         <td><img src="<?php echo $val['image']?>" width="150"></td>
-                                         <td><?php echo $val['content'] ?></td>
-                                         <td>
-                                         <?php
-                                            $string = $val['gallery'];
-                                            $str_arr = explode (",", $string);  
+                                            <td value="<?php echo $val['title'] ?>"><?php echo $val['title'] ?></td>
+                                            <td value="<?php echo $val['category'] ?>"><?php echo $val['category'] ?></td>
+                                            <td value="<?php echo $val['spotlight'] ?>"><?php echo $val['spotlight'] ?></td>
+                                            <td value="<?php echo $val['news'] ?>"><?php echo $val['news'] ?></td>
+                                            <td value="<?php echo $val['image'] ?>"><img src="<?php echo $val['image']?>" width="150"></td>
+                                            <td value="<?php echo $val['content'] ?>"><?php echo $val['content'] ?></td>
+                                            <td value="<?php echo $val['gallery'] ?>">
+                                            <?php
+                                                $string = $val['gallery'];
+                                                $str_arr = explode (",", $string);  
 
-                                            for($i=0;$i<sizeof($str_arr);$i++){
+                                                for($i=0;$i<sizeof($str_arr);$i++){
 
+                                                
+                                                
+                                            ?>
                                             
-                                             
-                                         ?>
-                                        
-                                         <img src="<?php echo $str_arr[$i]?>" width="150">
+                                            <img src="<?php echo $str_arr[$i]?>" width="150">
 
-                                         <?php
-                                            }
-                                         ?>
-                                         </td>
+                                            <?php
+                                                }
+                                            ?>
+                                            </td>
+
+                                         </tr>
 
 
 
@@ -85,6 +89,42 @@
                                        
         </div> 
 
+<script>
+
+window.addEventListener('load', (e) => {
+
+    var TableData = new Array();
+    
+    $('#myTable tr').each(function(row, tr){
+        TableData[row]={
+            "title" : $(tr).find('td:eq(0)').text()
+            , "category" :$(tr).find('td:eq(1)').text()
+            , "spotlight" : $(tr).find('td:eq(2)').text()
+            , "news" : $(tr).find('td:eq(3)').text()
+            , "image" : $(tr).find('td:eq(4)').text()
+            , "content" : $(tr).find('td:eq(5)').text()
+            , "gallery" : $(tr).find('td:eq(6)').text()
+        }
+    }); 
+    TableData.shift();  // first row is the table header - so remove
+
+    for(i=0;i<TableData.length;i++){
+        //console.log(TableData[i]["title"])
+
+       /*  db.collection('exhibitors').add({
+                title: TableData[i]["title"],
+            })*/
+        
+        db.collection('exhibitors').doc('12').set(
+            {
+                title: TableData[i]["title"],
+            }, 
+            {merge: true}
+        )
+    }
+
+})
+</script>
       
 
         
