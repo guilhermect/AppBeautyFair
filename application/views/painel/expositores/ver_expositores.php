@@ -5,6 +5,18 @@
         }
         </style>
 
+        <script>
+        function makeid(length) {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for (var i = 0; i < length; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+        }
+        </script>
+
   <div class="container">
         
             <div class="row">
@@ -16,6 +28,7 @@
                                 <table  id="myTable" class="table table-striped table-dark text-center">
                                     <thead style="background:#2E2E2E; ">
                                         <tr>
+                                            <th style="color:#fff;">ID</th>
                                             <th style="color:#fff;">Titulo</th>
                                             <th style="color:#fff;">Categoria</th>
                                             <th style="color:#fff;">Destaque</th>
@@ -34,6 +47,7 @@
 
                                         <tr>
                                         
+                                            <td value="<?php echo $val['id'] ?>"><?php echo $val['id'] ?></td>
                                             <td value="<?php echo $val['title'] ?>"><?php echo $val['title'] ?></td>
                                             <td value="<?php echo $val['category'] ?>"><?php echo $val['category'] ?></td>
                                             <td value="<?php echo $val['spotlight'] ?>"><?php echo $val['spotlight'] ?></td>
@@ -91,31 +105,37 @@
 
 <script>
 
+
+
 window.addEventListener('load', (e) => {
 
     var TableData = new Array();
     
     $('#myTable tr').each(function(row, tr){
         TableData[row]={
-            "title" : $(tr).find('td:eq(0)').text()
-            , "category" :$(tr).find('td:eq(1)').text()
-            , "spotlight" : $(tr).find('td:eq(2)').text()
-            , "news" : $(tr).find('td:eq(3)').text()
-            , "image" : $(tr).find('td:eq(4)').text()
-            , "content" : $(tr).find('td:eq(5)').text()
-            , "gallery" : $(tr).find('td:eq(6)').text()
+             "id" : $(tr).find('td:eq(0)').text()
+            ,"title" : $(tr).find('td:eq(1)').text()
+            , "category" :$(tr).find('td:eq(2)').text()
+            , "spotlight" : $(tr).find('td:eq(3)').text()
+            , "news" : $(tr).find('td:eq(4)').text()
+            , "image" : $(tr).find('td:eq(5)').text()
+            , "content" : $(tr).find('td:eq(6)').text()
+            , "gallery" : $(tr).find('td:eq(7)').text()
         }
     }); 
     TableData.shift();  // first row is the table header - so remove
 
     for(i=0;i<TableData.length;i++){
-        //console.log(TableData[i]["title"])
-
-       /*  db.collection('exhibitors').add({
-                title: TableData[i]["title"],
-            })*/
         
-        db.collection('exhibitors').doc('12').set(
+        /*usersRef.once('value', function(snapshot) {
+        if (snapshot.hasChild(theDataToAdd)) {
+            alert('exists');
+        }
+        });*/
+        
+        //$doc_id=makeid(20);
+        //console.log($doc_id);
+        db.collection('exhibitors').doc(TableData[i]["id"]).set(
             {
                 title: TableData[i]["title"],
             }, 

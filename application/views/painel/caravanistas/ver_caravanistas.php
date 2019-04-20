@@ -5,7 +5,7 @@
             border: 0;
             margin: 15px;
             padding: 6px;
-            width: 20%;
+            width: 40%;
             border-radius: 4px;
         }
         
@@ -42,6 +42,7 @@
                                             <th style="color:#fff;">Email</th>
                                             <th style="color:#fff;">Telefone 1</th>
                                             <th style="color:#fff;">Telefone 2</th>
+                                            <th style="color:#fff;">Ações</th>
                                            
                                         </tr>
                                         

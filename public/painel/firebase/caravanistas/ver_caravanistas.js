@@ -11,6 +11,7 @@ function renderCourse(doc){
     let email = document.createElement('td'); 
     let phone1 = document.createElement('td'); 
     let phone2 = document.createElement('td'); 
+    let del_btn = document.createElement('button');
 
 
 
@@ -22,6 +23,7 @@ function renderCourse(doc){
     tr.setAttribute('email',doc.data().email);
     tr.setAttribute('phone1',doc.data().phone1);
     tr.setAttribute('phone2',doc.data().phone2);
+    
 
     title.textContent= doc.data().title;
     address.textContent= doc.data().address;
@@ -30,6 +32,8 @@ function renderCourse(doc){
     email.textContent= doc.data().email;
     phone1.textContent= doc.data().phone1;
     phone2.textContent= doc.data().phone2;
+    del_btn.textContent = 'x'; 
+    
 
      
     tr.appendChild(title);
@@ -39,9 +43,18 @@ function renderCourse(doc){
     tr.appendChild(email);
     tr.appendChild(phone1);
     tr.appendChild(phone2);
+    tr.appendChild(del_btn);
   
 
     caravanList.appendChild(tr);
+
+     // deleting data
+     del_btn.addEventListener('click', (e) => {
+        
+        e.stopPropagation();
+        let id = e.target.parentElement.getAttribute('data-id');
+        db.collection('caravans').doc(id).delete();
+    });
 
 }
 
