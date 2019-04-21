@@ -4,6 +4,9 @@
         width: 100%;
         border: 1px solid black;
     }
+    #cblist input {
+        margin: 0 2px 0 20px;
+    }
 </style>
 <div class="container">
         
@@ -32,6 +35,35 @@
                                     <div class="nk-int-st">
                                         <br>
                                         <textarea class="form-control auto-size" rows="2" placeholder="" name="content" id="content"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-example-int">
+                                <div class="form-group">
+                                    <label>Categorias</label>
+                                    <div class="nk-int-st">
+
+                                   <!-- <div class="fm-checkbox">
+                                        <label><input type="checkbox" name="category[]"  class="category" value="Hair"> <i></i> Hair</label> 
+                                        &nbsp&nbsp&nbsp&nbsp
+                                        <label><input type="checkbox" name="category[]"  class="category" value="Estética"> <i></i> Estética</label>
+                                        &nbsp&nbsp&nbsp&nbsp
+                                        <label><input type="checkbox" name="category[]"  class="category" value="Manicure"> <i></i> Manicure</label>
+                                        &nbsp&nbsp&nbsp&nbsp
+                                        <label><input type="checkbox" name="category[]"  class="category" value="Maquiagem"> <i></i> Maquiagem</label>
+                                        &nbsp&nbsp&nbsp&nbsp
+                                    </div>-->
+
+                                    <div class="col-md-2" style="margin-left:-15px;">
+                                        <input type="text"  class="form-control input-sm" placeholder="Titulo da categoria"  name="checkbox_title" id="checkbox_title">
+                                    </div>
+                                    <button type="button" class="btn btn-warning" id="btnSave"><i class="fa fa-plus"></i></button>
+                                    
+                                    <div id="cblist" style="margin-top:20px;">
+                                        
+                                    </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -86,6 +118,57 @@
     })
 </script>
 
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('#btnSave').click(function() {
+        addCheckbox($('#checkbox_title').val());
+    });
+});
+
+function addCheckbox(name) {
+
+   db.collection('categories').add({
+        title: name
+    })
+}
+
+
+// Create element and render user
+function renderUser(doc){
+    let checkbox = document.createElement('input');
+    let title = document.createElement('td'); 
+
+
+   /*var container = $('#cblist');
+   var inputs = container.find('input');
+   var id = inputs.length+1;
+
+   $('<input />', { type: 'checkbox', id: 'cb'+id, value: name }).appendTo(container);
+   $('<label />', { 'for': 'cb'+id, text: name }).appendTo(container);*/
+
+
+    checkbox.setAttribute('type','checkbox');
+    checkbox.setAttribute('data-id',doc.id);
+    checkbox.setAttribute('title',doc.data().title);
+
+    title.textContent= doc.data().title;
+
+
+    tr.appendChild(title);
+
+   
+}
+
+
+//getting data
+db.collection('categories').get().then((snapshot) => {
+    snapshot.docs.forEach(doc => {
+        renderUser(doc);
+    })
+})
+
+</script>
 
 <script src="<?php echo base_url('public/painel/firebase/noticias/inserir_noticias.js') ?>"></script>
 

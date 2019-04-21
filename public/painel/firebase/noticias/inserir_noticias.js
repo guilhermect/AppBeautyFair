@@ -1,4 +1,3 @@
-
 const form = document.querySelector('#add-user-form');
 
 
@@ -48,21 +47,47 @@ fileButton.addEventListener('change', function(e){
 
     );
 
+    
+
     //saving data
     if(form){
+
+        var checkboxes = document.getElementsByName('category[]');
+        var vals = "";
+
+        for (var i=0, n=checkboxes.length;i<n;i++) 
+        {
+            if (checkboxes[i].checked) 
+            {
+                vals += ","+checkboxes[i].value;
+            }
+        }
+        if (vals) vals = vals.substring(1);
+        
+        
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             db.collection('news').doc('hair').collection('items').add({
                 title: form.title.value,
                 content: form.content.value,
+                categories: vals,
                 image: img,
                 date: form.data.value
             })
             swal( "Inserido com sucesso" ,  "Veja na página 'Ver notícias'!" ,  "success" );
             form.title.value = '';
             form.content.value = '';
+
+            for (i=0, n=checkboxes.length;i<n;i++) 
+            {
+                checkboxes[i].checked=false;   
+            }
+
             fileButton.value='';
             uploader.value='';
+
+            
+
             
         })
     }

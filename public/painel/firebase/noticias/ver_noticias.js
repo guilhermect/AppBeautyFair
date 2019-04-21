@@ -13,6 +13,7 @@ function renderUser(doc){
     let tr = document.createElement('tr');
     let title = document.createElement('td'); 
     let content = document.createElement('td'); 
+    let categories = document.createElement('td'); 
     let image = document.createElement('td'); 
     let date = document.createElement('td'); 
     let del_btn = document.createElement('button');
@@ -22,11 +23,13 @@ function renderUser(doc){
     tr.setAttribute('data-id',doc.id);
     tr.setAttribute('title',doc.data().title);
     tr.setAttribute('content',doc.data().content);
+    tr.setAttribute('categories',doc.data().categories);
     tr.setAttribute('image',doc.data().image);
     tr.setAttribute('date',doc.data().date);
 
     title.textContent= doc.data().title;
     content.textContent= doc.data().content;
+    categories.textContent= doc.data().categories;
     var img_url = doc.data().image;
     image.innerHTML= '<img src="'+img_url+'" width="150">';
     date.textContent= doc.data().date;
@@ -44,6 +47,7 @@ function renderUser(doc){
 
     tr.appendChild(title);
     tr.appendChild(content);
+    tr.appendChild(categories);
     tr.appendChild(image);
     tr.appendChild(date);
     tr.appendChild(upd_btn);
@@ -120,12 +124,14 @@ function renderUser(doc){
         var id = e.target.parentElement.getAttribute('data-id');
         var title = e.target.parentElement.getAttribute('title');
         var content = e.target.parentElement.getAttribute('content');
+        var categories = e.target.parentElement.getAttribute('categories');
         
         var date= document.getElementById('data').value;
 
 
 
         formUpd.title.value=title;
+        formUpd.content.value=content;
         formUpd.content.value=content;
         img_atual.setAttribute('src',img);
         fileButton.setAttribute('value',img);

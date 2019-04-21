@@ -37,6 +37,7 @@
                                         <tr>
                                             <th style="color:#fff;">Título</th>
                                             <th style="color:#fff;">Conteúdo</th>
+                                            <th style="color:#fff;">Categorias</th>
                                             <th style="color:#fff;">Imagem</th>
                                             <th style="color:#fff;">Data</th>
                                             <th style="color:#fff;">Ações</th>
