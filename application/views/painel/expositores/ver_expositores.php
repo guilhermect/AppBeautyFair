@@ -52,17 +52,16 @@
                                             <td value="<?php echo $val['category'] ?>"><?php echo $val['category'] ?></td>
                                             <td value="<?php echo $val['spotlight'] ?>"><?php echo $val['spotlight'] ?></td>
                                             <td value="<?php echo $val['news'] ?>"><?php echo $val['news'] ?></td>
-                                            <td value="<?php echo $val['image'] ?>"><img src="<?php echo $val['image']?>" width="150"></td>
+                                            <td value="<?php echo $val['image'] ?>"><label style="display:none"><?php echo $val['image']?></label><img src="<?php echo $val['image']?>" width="150"></td>
                                             <td value="<?php echo $val['content'] ?>"><?php echo $val['content'] ?></td>
                                             <td value="<?php echo $val['gallery'] ?>">
+                                            <label style="display:none"><?php echo $val['gallery']?></label>
                                             <?php
                                                 $string = $val['gallery'];
                                                 $str_arr = explode (",", $string);  
 
                                                 for($i=0;$i<sizeof($str_arr);$i++){
 
-                                                
-                                                
                                             ?>
                                             
                                             <img src="<?php echo $str_arr[$i]?>" width="150">
@@ -138,6 +137,12 @@ window.addEventListener('load', (e) => {
         db.collection('exhibitors').doc(TableData[i]["title"]).set(
             {
                 title: TableData[i]["title"],
+                category: TableData[i]["category"],
+                spotlight: TableData[i]["spotlight"],
+                news: TableData[i]["news"],
+                image: TableData[i]["image"],
+                content: TableData[i]["content"],
+                gallery: TableData[i]["gallery"],
             }, 
             {merge: true}
         )
