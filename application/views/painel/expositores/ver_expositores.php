@@ -135,7 +135,7 @@ window.addEventListener('load', (e) => {
         
         //$doc_id=makeid(20);
         //console.log($doc_id);
-        db.collection('exhibitors').doc(TableData[i]["id"]).set(
+        db.collection('exhibitors').doc(TableData[i]["title"]).set(
             {
                 title: TableData[i]["title"],
             }, 

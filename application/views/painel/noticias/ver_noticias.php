@@ -22,6 +22,9 @@
             width: 100%;
             border: 1px solid black;
         }
+        #cblist input {
+            margin: 0 2px 0 20px;
+        }
         </style>
 
   <div class="container">
@@ -93,6 +96,24 @@
                                     </div>
                                 </div>
 
+                                <div class="form-example-int">
+                                    <div class="form-group">
+                                        <label>Categorias</label>
+                                        <div class="nk-int-st">
+
+                                        <div class="col-md-4" style="margin-left:-15px;">
+                                            <input type="text"  class="form-control input-sm" placeholder="Titulo da categoria"  name="checkbox_title" id="checkbox_title">
+                                        </div>
+                                        <button type="button" class="btn btn-warning" style="width:7%;" id="btnSave"><i class="fa fa-plus"></i></button>
+                                        
+                                        <div id="cblist" style="margin-top:20px;">
+                                            
+                                        </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-example-int mg-t-15">
                                     <div class="form-group">
                                         <label>Imagem</label>
@@ -149,6 +170,50 @@
         $(function(){
             $("#data").attr('value',output);
         })
+        </script>
+
+        <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#btnSave').click(function() {
+                addCheckbox($('#checkbox_title').val());
+            });
+        });
+
+        function addCheckbox(name) {
+
+        db.collection('categories').add({
+                title: name
+            })
+        }
+
+
+        // Create element and render user
+        function renderCheck(doc){
+            
+            var container = $('#cblist');
+            var inputs = container.find('input');
+            var id = inputs.length+1;
+
+            $('<input />', { type: 'checkbox', name: 'category[]', id: 'cb'+id, value: doc.data().title }).appendTo(container);
+            $('<label />', { 'for': 'cb'+id, text: doc.data().title }).appendTo(container);
+
+        }
+
+
+            db.collection('categories').onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                changes.forEach(change => {
+                    if(change.type == 'added'){
+                        renderCheck(change.doc);
+                    } else if(change.type == 'removed'){
+                        let checkbox = container.querySelector('input #cb' + change.id); 
+                        container.removeChild(checkbox);          
+                    } 
+                })
+            })
+            
+
         </script>
 
         <script src="<?php echo base_url('public/painel/firebase/noticias/ver_noticias.js') ?>"></script>

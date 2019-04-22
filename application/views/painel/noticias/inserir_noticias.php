@@ -44,17 +44,6 @@
                                     <label>Categorias</label>
                                     <div class="nk-int-st">
 
-                                   <!-- <div class="fm-checkbox">
-                                        <label><input type="checkbox" name="category[]"  class="category" value="Hair"> <i></i> Hair</label> 
-                                        &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="checkbox" name="category[]"  class="category" value="Estética"> <i></i> Estética</label>
-                                        &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="checkbox" name="category[]"  class="category" value="Manicure"> <i></i> Manicure</label>
-                                        &nbsp&nbsp&nbsp&nbsp
-                                        <label><input type="checkbox" name="category[]"  class="category" value="Maquiagem"> <i></i> Maquiagem</label>
-                                        &nbsp&nbsp&nbsp&nbsp
-                                    </div>-->
-
                                     <div class="col-md-2" style="margin-left:-15px;">
                                         <input type="text"  class="form-control input-sm" placeholder="Titulo da categoria"  name="checkbox_title" id="checkbox_title">
                                     </div>
@@ -135,37 +124,30 @@ function addCheckbox(name) {
 
 
 // Create element and render user
-function renderUser(doc){
-    let checkbox = document.createElement('input');
-    let title = document.createElement('td'); 
-
-
-   /*var container = $('#cblist');
+function renderCheck(doc){
+    
+   var container = $('#cblist');
    var inputs = container.find('input');
    var id = inputs.length+1;
 
-   $('<input />', { type: 'checkbox', id: 'cb'+id, value: name }).appendTo(container);
-   $('<label />', { 'for': 'cb'+id, text: name }).appendTo(container);*/
+   $('<input />', { type: 'checkbox', name: 'category[]', id: 'cb'+id, value: doc.data().title }).appendTo(container);
+   $('<label />', { 'for': 'cb'+id, text: doc.data().title }).appendTo(container);
 
-
-    checkbox.setAttribute('type','checkbox');
-    checkbox.setAttribute('data-id',doc.id);
-    checkbox.setAttribute('title',doc.data().title);
-
-    title.textContent= doc.data().title;
-
-
-    tr.appendChild(title);
-
-   
 }
 
 
-//getting data
-db.collection('categories').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderUser(doc);
+db.collection('categories').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if(change.type == 'added'){
+            renderCheck(change.doc);
+        } else if(change.type == 'removed'){
+            let checkbox = container.querySelector('input #cb' + change.id); 
+            container.removeChild(checkbox);          
+        } 
+        
     })
+
 })
 
 </script>

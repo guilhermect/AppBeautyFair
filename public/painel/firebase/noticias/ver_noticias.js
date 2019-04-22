@@ -8,6 +8,7 @@ var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
 
 
+
 // Create element and render user
 function renderUser(doc){
     let tr = document.createElement('tr');
@@ -119,34 +120,104 @@ function renderUser(doc){
         if(document.getElementById("fileButton").value == "") {
             img = e.target.parentElement.getAttribute('image');
         }
-
+        
          
         var id = e.target.parentElement.getAttribute('data-id');
         var title = e.target.parentElement.getAttribute('title');
         var content = e.target.parentElement.getAttribute('content');
-        var categories = e.target.parentElement.getAttribute('categories');
+        
         
         var date= document.getElementById('data').value;
 
+        var checkboxes = document.getElementsByName('category[]');
 
+        var categories = e.target.parentElement.getAttribute('categories');
 
+        var categoriesArr = categories.split(',');
+
+        
+        for (i=0; i<checkboxes.length;i++) 
+        {   
+            for(j=0;j<categoriesArr.length;j++){
+                if(checkboxes[i].value==categoriesArr[j]){
+                    checkboxes[i].checked=true;
+                }  
+            }
+                
+        }
+
+       
+
+       /* if(
+            checkboxes[0].value==categoriesArr[0] || 
+            checkboxes[0].value==categoriesArr[1] || 
+            checkboxes[0].value==categoriesArr[2] || 
+            checkboxes[0].value==categoriesArr[3] || 
+            checkboxes[0].value==categoriesArr[4]
+        ){
+            checkboxes[0].checked=true;
+        }
+        
+        if(
+            checkboxes[1].value==categoriesArr[0] || 
+            checkboxes[1].value==categoriesArr[1] || 
+            checkboxes[1].value==categoriesArr[2] || 
+            checkboxes[1].value==categoriesArr[3] || 
+            checkboxes[1].value==categoriesArr[4]
+        ){
+            checkboxes[1].checked=true;
+        }  
+
+        if(
+            checkboxes[2].value==categoriesArr[0] || 
+            checkboxes[2].value==categoriesArr[1] || 
+            checkboxes[2].value==categoriesArr[2] || 
+            checkboxes[2].value==categoriesArr[3] || 
+            checkboxes[2].value==categoriesArr[4]
+        ){
+            checkboxes[2].checked=true;
+        }  
+
+        if(
+            checkboxes[3].value==categoriesArr[0] || 
+            checkboxes[3].value==categoriesArr[1] || 
+            checkboxes[3].value==categoriesArr[2] || 
+            checkboxes[3].value==categoriesArr[3] || 
+            checkboxes[3].value==categoriesArr[4]
+        ){
+            checkboxes[3].checked=true;
+        }  */
+
+  
         formUpd.title.value=title;
-        formUpd.content.value=content;
         formUpd.content.value=content;
         img_atual.setAttribute('src',img);
         fileButton.setAttribute('value',img);
+
         
-
-
+        
 
         if(formUpd){
             
+            
 
             formUpd.addEventListener('submit', (e) => {
+                var checkboxes = document.getElementsByName('category[]');
+                var vals = "";
+
+                for (var i=0, n=checkboxes.length;i<n;i++) 
+                {
+                    if (checkboxes[i].checked) 
+                    {
+                        vals += ","+checkboxes[i].value;
+                    }
+                }
+                if (vals) vals = vals.substring(1);
                 e.preventDefault();
                 db.collection('news').doc('hair').collection('items').doc(id).update({
                     title:formUpd.title.value,
                     content: formUpd.content.value,
+                    categories: vals,
                     image: img,
                     date: date
                 })
@@ -154,8 +225,9 @@ function renderUser(doc){
                 
                 
                 document.getElementById("myModalsix").setAttribute("style","display:none;");
-
+                
                 setTimeout(function(){
+                    
                     window.location.reload(1);
                  }, 250);
             });
@@ -166,9 +238,24 @@ function renderUser(doc){
 
     });
 
+    if(document.getElementById("close").addEventListener("click",function(){
+        var checkboxes = document.getElementsByName('category[]');
+
+        for (i=0; i<checkboxes.length;i++) 
+        {
+            checkboxes[i].checked=false;
+        }
+        
+    }));
+            
+        
+    
+    
  
     //document.querySelector("table").setAttribute("id","data-table-basic");
 }
+
+
 
 
 
