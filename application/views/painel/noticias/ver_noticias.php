@@ -61,92 +61,7 @@
                                        
         </div> 
 
-      
-
-        <div class="modal animated rubberBand" id="myModalsix" role="dialog">
-            <div class="modal-dialog modals-default">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="form-example-wrap">
-                                <div class="cmp-tb-hd">
-                                    <h2>Atualizar Notícia</h2>
-                                </div>
-
-                                <form id="update-user-form">
-                                    <div class="form-example-int">
-                                    <div class="form-group">
-                                        <label>Título</label>
-                                        <div class="nk-int-st">
-                                            <input type="text"  class="form-control input-sm" placeholder=""  name="title" id="title">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-example-int mg-t-15">
-                                    <div class="form-group">
-                                        <label>Conteúdo da Notícia</label>
-                                        <div class="nk-int-st">
-                                            <br>
-                                            <textarea class="form-control auto-size" rows="2" placeholder="" name="content" id="content"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-example-int">
-                                    <div class="form-group">
-                                        <label>Categorias</label>
-                                        <div class="nk-int-st">
-
-                                        <div class="col-md-4" style="margin-left:-15px;">
-                                            <input type="text"  class="form-control input-sm" placeholder="Titulo da categoria"  name="checkbox_title" id="checkbox_title">
-                                        </div>
-                                        <button type="button" class="btn btn-warning" style="width:7%;" id="btnSave"><i class="fa fa-plus"></i></button>
-                                        
-                                        <div id="cblist" style="margin-top:20px;">
-                                            
-                                        </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-example-int mg-t-15">
-                                    <div class="form-group">
-                                        <label>Imagem</label>
-                                        <div class="nk-int-st mg-t-15">
-                                            <img width="100" id="img-atual" style="padding-bottom:2px;">
-                                            <progress value="0" max="100" id="uploader">0%</progress>
-                                            <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" >
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-example-int mg-t-15">
-                                <div class="form-group">
-                                    <label>Data</label>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" value="" name="data" id="data" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                                
-                            </div>   
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-default" >Atualizar</button>
-                    </div>
-                    
-                    </form>
-                </div>
-            </div>
-        </div>
+    
 
         
 
@@ -212,6 +127,53 @@
                     } 
                 })
             })
+
+            //updating data
+    upd_btn.addEventListener('click', (e) => {
+        
+
+        document.getElementById("myModalsix").setAttribute("style","display:block;");
+        
+        if(document.getElementById("fileButton").value == "") {
+            img = e.target.parentElement.getAttribute('image');
+        }
+        
+         
+        var id = e.target.parentElement.getAttribute('data-id');
+        var title = e.target.parentElement.getAttribute('title');
+        var content = e.target.parentElement.getAttribute('content');
+        
+        
+        var date= document.getElementById('data').value;
+
+        var checkboxes = document.getElementsByName('category[]');
+
+        var categories = e.target.parentElement.getAttribute('categories');
+
+        var categoriesArr = categories.split(',');
+
+        
+        for (i=0; i<checkboxes.length;i++) 
+        {   
+            for(j=0;j<categoriesArr.length;j++){
+                if(checkboxes[i].value==categoriesArr[j]){
+                    checkboxes[i].checked=true;
+                }  
+            }
+                
+        }
+
+    
+  
+        formUpd.title.value=title;
+        formUpd.content.value=content;
+        img_atual.setAttribute('src',img);
+        fileButton.setAttribute('value',img);
+
+        
+
+
+    });
             
 
         </script>

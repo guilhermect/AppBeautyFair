@@ -111,6 +111,21 @@ class Painel extends CI_Controller {
 		$this->load->view('painel/frontend/html-footer');
 	}
 
+	public function update_expositor()
+	{
+
+		$id=$this->input->post('id');
+
+		$sheet=$this->painel_model->get_specific_data('expositores','id',$id);
+
+		$this->load->view('painel/frontend/html-header');
+		$this->load->view('painel/frontend/header');
+		$this->load->view('painel/frontend/menu');
+		$this->load->view('painel/expositores/atualizar_expositores',$sheet);
+		$this->load->view('painel/frontend/footer');
+		$this->load->view('painel/frontend/html-footer');
+	}
+
 
 	public function upload_file(){
 		if($_FILES['caravanas']['name'] != ""){

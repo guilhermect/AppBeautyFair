@@ -28,14 +28,15 @@
                                 <table  id="myTable" class="table table-striped table-dark text-center">
                                     <thead style="background:#2E2E2E; ">
                                         <tr>
-                                            <th style="color:#fff;">ID</th>
                                             <th style="color:#fff;">Titulo</th>
                                             <th style="color:#fff;">Categoria</th>
-                                            <th style="color:#fff;">Destaque</th>
-                                            <th style="color:#fff;">Novidades</th>
-                                            <th style="color:#fff;">Imagem</th>
+                                            <th style="color:#fff;">Logotipo</th>
+                                          <!--  <th style="color:#fff;">Destaque</th> -->
+                                          <!--  <th style="color:#fff;">Novidades</th> -->
+                                            <th style="color:#fff;">Imagem de Destaque</th>
                                             <th style="color:#fff;">Conteudo</th>
                                             <th style="color:#fff;">Galeria de Imagem</th>
+                                            <th style="color:#fff;">Ações</th>
                                         </tr>
                                         
                                     </thead>
@@ -47,11 +48,34 @@
 
                                         <tr>
                                         
-                                            <td value="<?php echo $val['id'] ?>"><?php echo $val['id'] ?></td>
                                             <td value="<?php echo $val['title'] ?>"><?php echo $val['title'] ?></td>
                                             <td value="<?php echo $val['category'] ?>"><?php echo $val['category'] ?></td>
-                                            <td value="<?php echo $val['spotlight'] ?>"><?php echo $val['spotlight'] ?></td>
-                                            <td value="<?php echo $val['news'] ?>"><?php echo $val['news'] ?></td>
+                                            <td value="<?php echo $val['logo'] ?>"><label style="display:none"><?php echo $val['logo']?></label><img src="<?php echo $val['logo']?>" width="150"></td>
+                                            
+                                            <?php
+                                                $destaque = $val['spotlight'];
+
+                                                if($destaque == 0){
+                                                    $destaque='Não';
+                                                } else {
+                                                    $destaque='Sim';
+                                                }        
+                                            ?>
+                                            
+                                           <!-- <td value="<?php echo $val['spotlight'] ?>"> <?php echo $destaque ?> </td> -->
+
+                                            <?php
+                                                $novidades = $val['news'];
+
+                                                if($novidades == 0){
+                                                    $novidades='Não';
+                                                } else {
+                                                    $novidades='Sim';
+                                                }        
+                                            ?>
+
+                                            <!--<td value="<?php echo $val['news'] ?>"><?php echo $novidades ?></td> -->
+
                                             <td value="<?php echo $val['image'] ?>"><label style="display:none"><?php echo $val['image']?></label><img src="<?php echo $val['image']?>" width="150"></td>
                                             <td value="<?php echo $val['content'] ?>"><?php echo $val['content'] ?></td>
                                             <td value="<?php echo $val['gallery'] ?>">
@@ -71,18 +95,21 @@
                                             ?>
                                             </td>
 
-                                         </tr>
+                                         
 
 
 
-                                         <!--<td>
-                                            <form method="post" action="<?php echo base_url('painel/update_expositor') ?>">
-                                                <button class="btn btn-success">↺</button>
-                                            </form>
-                                            <form method="post" action="<?php echo base_url('painel/delete_expositor') ?>">
+                                         <td>
+                                          <form method="post" action="<?php echo base_url()."painel/update_expositor" ?>">
+                                                <input type="hidden" name="id" value="<?php echo $val['id'] ?>">
+                                                <button type="submit" class="btn btn-success">↺</button>
+                                           </form> 
+                                            <!--<form method="post" action="<?php echo base_url('painel/delete_expositor') ?>">
                                                 <button class="btn btn-danger">x</button>
-                                            </form>
-                                         </td>-->
+                                            </form>-->
+                                         </td>
+
+                                         </tr>
                                         
 
                                         <?php
@@ -112,9 +139,9 @@ window.addEventListener('load', (e) => {
     
     $('#myTable tr').each(function(row, tr){
         TableData[row]={
-             "id" : $(tr).find('td:eq(0)').text()
-            ,"title" : $(tr).find('td:eq(1)').text()
-            , "category" :$(tr).find('td:eq(2)').text()
+            "title" : $(tr).find('td:eq(0)').text()
+            , "category" :$(tr).find('td:eq(1)').text()
+            , "logo" :$(tr).find('td:eq(2)').text()
             , "spotlight" : $(tr).find('td:eq(3)').text()
             , "news" : $(tr).find('td:eq(4)').text()
             , "image" : $(tr).find('td:eq(5)').text()

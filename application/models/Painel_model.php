@@ -25,10 +25,10 @@ class Painel_model extends CI_Model {
       
         if($query=$this->db->get())
         {
-            return $query->row_array();
-        }else{
-            return false;
-        }    
+            $result['data']=$query->result_array();
+        }
+        
+        return $result;
     }
 
 }
