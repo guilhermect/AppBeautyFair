@@ -100,7 +100,7 @@
 
 
                                          <td>
-                                          <form method="post" action="<?php echo base_url()."painel/update_expositor" ?>">
+                                          <form method="post" action="<?php echo base_url()."painel/edit_expositor" ?>">
                                                 <input type="hidden" name="id" value="<?php echo $val['id'] ?>">
                                                 <button type="submit" class="btn btn-success">↺</button>
                                            </form> 

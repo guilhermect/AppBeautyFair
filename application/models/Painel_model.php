@@ -31,4 +31,9 @@ class Painel_model extends CI_Model {
         return $result;
     }
 
+    public function update_expositor($data){
+        $this->db->where('id', $data['id']);
+        return $this->db->update('expositores', $data);
+    }
+
 }

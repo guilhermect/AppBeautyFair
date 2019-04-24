@@ -99,7 +99,7 @@ if(isset($_POST['enviar'])){
                                 <div class="form-group">
                                     <label>Arquivo</label>
                                     <div class="nk-int-st mg-t-15">
-                                        <input type="file" name="file" class="form-control input-sm" id="fileButton" required>
+                                        <input type="file" name="file" class="form-control input-sm" required>
                                        
                                     </div>
                                 </div>

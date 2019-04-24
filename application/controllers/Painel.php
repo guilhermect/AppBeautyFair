@@ -111,7 +111,7 @@ class Painel extends CI_Controller {
 		$this->load->view('painel/frontend/html-footer');
 	}
 
-	public function update_expositor()
+	public function edit_expositor()
 	{
 
 		$id=$this->input->post('id');
@@ -128,24 +128,56 @@ class Painel extends CI_Controller {
 
 
 	public function upload_file(){
-		if($_FILES['caravanas']['name'] != ""){
+		
+		
 
-            $path='./import_json/';
-            
-            $config = array(
-                 'upload_path'   => $path,
-                 'allowed_types'=>'pdf',
-                 'max_size'      => '2048000'
-             );  
-    
-            $this->load->library('upload');
-            
-            $this->upload->initialize($config);
-            
-			$upload =  $this->upload->do_upload('caravanas');
-			
-			return $upload;
-        } 
+	}
+
+	public function update_expositor(){
+		$id=$this->input->post('id');
+		$title=$this->input->post('title');
+        $category=$this->input->post('category');
+        $logo=$this->input->post('logo');
+        $spotlight=$this->input->post('spotlight');
+		$news=$this->input->post('news');
+		$image=$this->input->post('image');
+
+		
+		$img_name = $_FILES['file']['name'];  
+		$temp_name  = $_FILES['file']['tmp_name'];  
+		
+    	if(isset($img_name)){
+        	if(!empty($img_name)){      
+            	$location = $_SERVER['DOCUMENT_ROOT'].'/appbeautyfair/uploads/';      
+				if(move_uploaded_file($temp_name, $location.$img_name)){
+					$image=$location.$img_name;
+				}
+			}
+		}
+		
+		
+		
+        $content=$this->input->post('content');
+        $gallery=$this->input->post('gallery');
+       
+         $expositor=array(
+              'id'=>$id,
+              'title'=>$title,
+              'category'=>$category,
+              //'logo'=>$logo,
+              'spotlight'=>$spotlight,
+              'news'=>$news,
+              'image'=>$image,
+              'content'=>$content,
+              //'gallery'=>$gallery,
+           );
+        
+		$update = $this->painel_model->update_expositor($expositor);
+
+		if($update){
+			redirect(base_url('painel/ver_expositores'));
+		}
+		
 	}
 
 	

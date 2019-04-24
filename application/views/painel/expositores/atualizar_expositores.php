@@ -17,8 +17,8 @@
                             
 
                         </div>
-
-                        <form id="add-form">
+                            
+                        <form id="add-form" method="post" enctype="multipart/form-data" action="<?php echo base_url('painel/update_expositor'); ?>">
 
                             <?php
                                 if(is_array($data)){
@@ -85,7 +85,7 @@
                                     <img src="<?php echo $val['logo'] ?>" width="100">
 
                                     <div class="nk-int-st mg-t-15">
-                                        <input type="file" name="logo" class="form-control input-sm" required>
+                                      <!--  <input type="file" name="logo" class="form-control input-sm" >-->
                                        
                                     </div>
                                 </div>
@@ -163,7 +163,7 @@
                                     <img src="<?php echo $val['image'] ?>" width="100">
 
                                     <div class="nk-int-st mg-t-15">
-                                        <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" required>
+                                        <input type="file" name="file" class="form-control input-sm">
                                        
                                     </div>
                                 </div>
@@ -179,8 +179,7 @@
                             </div>
 
                             
-                                            
-                                            
+          
                                             
                             <div class="form-example-int mg-t-15">
                                 <div class="form-group">
@@ -193,25 +192,29 @@
                                         for($i=0;$i<sizeof($str_arr);$i++){
 
                                     ?>
-                                    <img src="<?php echo $str_arr[$i]?>" width="100">
+                                    
+                                    
+                                    <div class="nk-int-st mg-t-15">
+                                        <img src="<?php echo $str_arr[$i]?>" width="100"><br><br>
+                                        <!--<input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" >-->
+                                    </div>
+                                    <br><br>
                                     <?php
                                         }
                                     ?>
 
-                                    <div class="nk-int-st mg-t-15">
-                                        <input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" required>
-                                       
-                                    </div>
+                                    
                                 </div>
                             </div>
                                         
 
 
-                            
+                            <input type="hidden" name="id" value="<?php echo $val['id'] ?>">
                         
                             <div class="form-example-int mg-t-15">
-                                <button class="btn btn-success">Atualizar</button>
+                                <button class="btn btn-success" type="submit">Atualizar</button>
                             </div>
+
 
                             <?php
                                 }
