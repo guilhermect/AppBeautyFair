@@ -3,6 +3,13 @@
         form{
             display:inline-block;
         }
+        img {
+  
+            max-height: 100px;
+            max-width: 100px;
+            padding-right:2px;
+        }
+        
         </style>
 
         <script>
@@ -31,8 +38,8 @@
                                             <th style="color:#fff;">Titulo</th>
                                             <th style="color:#fff;">Categoria</th>
                                             <th style="color:#fff;">Logotipo</th>
-                                          <!--  <th style="color:#fff;">Destaque</th> -->
-                                          <!--  <th style="color:#fff;">Novidades</th> -->
+                                            <th style="color:#fff;">Destaque</th> 
+                                            <th style="color:#fff;">Novidades</th> 
                                             <th style="color:#fff;">Imagem de Destaque</th>
                                             <th style="color:#fff;">Conteudo</th>
                                             <th style="color:#fff;">Galeria de Imagem</th>
@@ -62,7 +69,7 @@
                                                 }        
                                             ?>
                                             
-                                           <!-- <td value="<?php echo $val['spotlight'] ?>"> <?php echo $destaque ?> </td> -->
+                                           <td value="<?php echo $val['spotlight'] ?>"> <?php echo $destaque ?> </td> 
 
                                             <?php
                                                 $novidades = $val['news'];
@@ -74,11 +81,11 @@
                                                 }        
                                             ?>
 
-                                            <!--<td value="<?php echo $val['news'] ?>"><?php echo $novidades ?></td> -->
+                                            <td value="<?php echo $val['news'] ?>"><?php echo $novidades ?></td> 
 
                                             <td value="<?php echo $val['image'] ?>"><label style="display:none"><?php echo $val['image']?></label><img src="<?php echo $val['image']?>" width="150"></td>
                                             <td value="<?php echo $val['content'] ?>"><?php echo $val['content'] ?></td>
-                                            <td value="<?php echo $val['gallery'] ?>">
+                                            <td style="display:flex;" value="<?php echo $val['gallery'] ?>">
                                             <label style="display:none"><?php echo $val['gallery']?></label>
                                             <?php
                                                 $string = $val['gallery'];

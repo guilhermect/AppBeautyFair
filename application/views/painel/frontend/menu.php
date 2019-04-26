@@ -201,7 +201,7 @@
             $(".tab-content.custom-menu-content .tab-pane:nth-child(6)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");
             $(".main-menu-area ul li:nth-child(6)").attr("class","active");
         }
-        else if(pageURL==base_path+'painel/ver_expositores' || pageURL==base_path+'painel/update_expositor'){
+        else if(pageURL==base_path+'painel/ver_expositores' || pageURL==base_path+'painel/edit_expositor'){
             $(".tab-content.custom-menu-content .tab-pane:nth-child(4)").attr("class","tab-pane in active notika-tab-menu-bg animated flipInX");
             $(".main-menu-area ul li:nth-child(4)").attr("class","active");
         }

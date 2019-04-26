@@ -33,6 +33,8 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            
 
                             <div class="form-example-int">
                                 <div class="form-group">
@@ -85,7 +87,7 @@
                                     <img src="<?php echo $val['logo'] ?>" width="100">
 
                                     <div class="nk-int-st mg-t-15">
-                                      <!--  <input type="file" name="logo" class="form-control input-sm" >-->
+                                      <input type="file" name="logo" class="form-control input-sm" >
                                        
                                     </div>
                                 </div>
@@ -109,7 +111,7 @@
                                             $checkedSpot1='checked';
                                         } else
                                         if($val['spotlight']==0){
-                                            $$checkedSpot2='checked';
+                                            $checkedSpot2='checked';
                                         }
 
                                         ?>
@@ -161,9 +163,11 @@
                                     <label>Imagem de Destaque</label>
                                     <br><br>
                                     <img src="<?php echo $val['image'] ?>" width="100">
+                                    
+                                    <input type="hidden" name="image_old" value="<?php echo $val['image'] ?>">
 
                                     <div class="nk-int-st mg-t-15">
-                                        <input type="file" name="file" class="form-control input-sm">
+                                        <input type="file" name="image" class="form-control input-sm">
                                        
                                     </div>
                                 </div>
@@ -196,7 +200,10 @@
                                     
                                     <div class="nk-int-st mg-t-15">
                                         <img src="<?php echo $str_arr[$i]?>" width="100"><br><br>
-                                        <!--<input type="file" name="image" class="form-control input-sm" value="upload" id="fileButton" >-->
+                                        <input type="file" name="gallery<?php echo $i?>" class="form-control input-sm">
+
+                                        <input type="hidden" name="gallery_old<?php echo $i?>" value="<?php echo $str_arr[$i] ?>">
+
                                     </div>
                                     <br><br>
                                     <?php

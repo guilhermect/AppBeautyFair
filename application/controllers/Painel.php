@@ -127,35 +127,60 @@ class Painel extends CI_Controller {
 	}
 
 
-	public function upload_file(){
-		
-		
+	public function upload_file(){}
 
-	}
+
 
 	public function update_expositor(){
 		$id=$this->input->post('id');
 		$title=$this->input->post('title');
-        $category=$this->input->post('category');
-        $logo=$this->input->post('logo');
-        $spotlight=$this->input->post('spotlight');
-		$news=$this->input->post('news');
-		$image=$this->input->post('image');
+		$category=$this->input->post('category');
+		
+
+
+		$logo='';
+		$logo_old=$this->input->post('image_old');
+		
+		$logo_name = $_FILES['logo']['name'];  
+		$logo_temp_name  = $_FILES['logo']['tmp_name'];  
+		
+    	if(isset($logo_name)){
+        	if(!empty($logo_name)){      
+            	$logo_location = $_SERVER['DOCUMENT_ROOT'].'/appbeautyfair/uploads/';      
+				if(move_uploaded_file($logo_temp_name, $logo_location.$logo_name)){
+					$logo=base_url('uploads/'.$logo_name);
+				}
+			} else {
+			    $logo = $logo_old;
+			}
+		}
+
 
 		
-		$img_name = $_FILES['file']['name'];  
-		$temp_name  = $_FILES['file']['tmp_name'];  
+        $spotlight=$this->input->post('spotlight');
+		$news=$this->input->post('news');
+		
+		
+
+
+		$image='';
+		$image_old=$this->input->post('image_old');
+		
+		$img_name = $_FILES['image']['name'];  
+		$image_temp_name  = $_FILES['image']['tmp_name'];  
 		
     	if(isset($img_name)){
         	if(!empty($img_name)){      
-            	$location = $_SERVER['DOCUMENT_ROOT'].'/appbeautyfair/uploads/';      
-				if(move_uploaded_file($temp_name, $location.$img_name)){
-					$image=$location.$img_name;
+            	$image_location = $_SERVER['DOCUMENT_ROOT'].'/appbeautyfair/uploads/';      
+				if(move_uploaded_file($image_temp_name, $image_location.$img_name)){
+					$image=base_url('uploads/'.$img_name);
 				}
+			} else {
+			    $image = $image_old;
 			}
 		}
-		
-		
+
+
 		
         $content=$this->input->post('content');
         $gallery=$this->input->post('gallery');
@@ -164,7 +189,7 @@ class Painel extends CI_Controller {
               'id'=>$id,
               'title'=>$title,
               'category'=>$category,
-              //'logo'=>$logo,
+              'logo'=>$logo,
               'spotlight'=>$spotlight,
               'news'=>$news,
               'image'=>$image,
